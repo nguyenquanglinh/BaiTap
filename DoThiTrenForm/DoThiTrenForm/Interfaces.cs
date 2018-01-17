@@ -7,18 +7,28 @@ using System.Threading.Tasks;
 
 namespace DoThiTrenForm
 {
+    public interface IGraphDrawler
+    {
+        void Draw(IDoThi canh);
+        void UpdateEdge(IDoThi canh);
+    }
 
     public interface IDoThi
     {
-        List<ICanh> TapCanh { get; set; }
+        event EventHandler OnGraphChanged;
+        IEnumerable<ICanh> TapCanh { get; }
+        IEnumerable<IDiem> TapDinh { get; }
+        IDiem this[string name] { get; }
 
         void ThemCanh(Canh canh);
         void ThemDinh(IDiem diemDinh);
+
         void XoaMotDiem(IDiem diemClick);
     }
 
     public interface IDiem
     {
+        event EventHandler<DiemDoubleClickedArgs> OnDoubleClick;
         Point Center { get; }
         Color Color { get; set; }
         bool Overlap(Diem other);
@@ -29,6 +39,7 @@ namespace DoThiTrenForm
     {
         IDiem DiemCuoi { get; set; }
         IDiem DiemDau { get; set; }
+        Color Color { get; set; }
         bool Equals(object obj);
         int GetHashCode();
         string ToString();

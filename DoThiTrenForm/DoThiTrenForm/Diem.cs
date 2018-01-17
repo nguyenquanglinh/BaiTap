@@ -10,22 +10,23 @@ using System.Windows.Forms;
 
 namespace DoThiTrenForm
 {
-    public partial class Diem : UserControl, DoThiTrenForm.IDiem
+    public partial class Diem : UserControl, IDiem
     {
         public Diem()
         {
             InitializeComponent();
+            this.Color = System.Drawing.Color.Red;
         }
 
-        static DoThi dT;
-        static DrawCanh draW;
+        //static DoThi dT;
+        //static DrawCanh draW;
 
-        public Diem(DoThi dt, DrawCanh draw)
-            : this()
-        {
-            dT = dt;
-            draW = draw;
-        }
+        //public Diem(DoThi dt, DrawCanh draw)
+        //    : this()
+        //{
+        //    dT = dt;
+        //    draW = draw;
+        //}
 
         Color color;
 
@@ -68,56 +69,53 @@ namespace DoThiTrenForm
             g.Dispose();
             sb.Dispose();
         }
-
-        private void panel1_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
-
-        static IDiem lastedClick;
-
-        static public Canh canhMoi { get; set; }
+         
 
         private void Diem_Click(object sender, EventArgs e)
         {
-            var ht = sender as IDiem;
-            ht.Color = Color.Red;
+            //var ht = sender as IDiem;
+            //ht.Color = Color.Red;
 
-            if (lastedClick == null)
-            {
-                lastedClick = ht;
-                return;
-            }
-            if (ht.Equals(lastedClick))
-            {
-                ht.Color = Color.Blue;
-                lastedClick = null;
-                return;
-            }
-            ht.Color = Color.Blue;
-            lastedClick.Color = Color.Blue;
-            canhMoi = new Canh(lastedClick, ht);
-            if (!dT.tapCanh.Contains(canhMoi))
-            {
-                dT.ThemCanh(canhMoi);
-                draW.Draw(canhMoi);
-            }
-            lastedClick = null;
+            //if (lastedClick == null)
+            //{
+            //    lastedClick = ht;
+            //    return;
+            //}
+            //if (ht.Equals(lastedClick))
+            //{
+            //    ht.Color = Color.Blue;
+            //    lastedClick = null;
+            //    return;
+            //}
+            //ht.Color = Color.Blue;
+            //lastedClick.Color = Color.Blue;
+            //canhMoi = new Canh(lastedClick, ht);
+            //if (!dT.tapCanh.Contains(canhMoi))
+            //{
+            //    dT.ThemCanh(canhMoi);
+            //    draW.Draw(canhMoi);
+            //}
+            //lastedClick = null;
         }
 
         private void Diem_DoubleClick(object sender, EventArgs e)
         {
-            var ht = sender as IDiem;
-            dT.XoaMotDiem(ht);
-            this.Dispose();
-            foreach (var canh in dT.tapCanh)
-            {
-                draW.Draw(canh);
-            }
+            if (this.OnDoubleClick != null)
+                this.OnDoubleClick(this, new DiemDoubleClickedArgs { Name = this.PointName });
+   
         }
+
         public override string ToString()
         {
             return this.Center.X.ToString() + " " + this.Center.Y.ToString();
         }
+
+        public event EventHandler<DiemDoubleClickedArgs> OnDoubleClick;
+    }
+
+    public class DiemDoubleClickedArgs : EventArgs
+    {
+        public string Name { get; set; }
+
     }
 }

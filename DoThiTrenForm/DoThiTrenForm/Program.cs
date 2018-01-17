@@ -14,6 +14,9 @@ namespace DoThiTrenForm
         [STAThread]
         static void Main()
         {
+
+            //var r=new FileText().DocFile("dt1");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

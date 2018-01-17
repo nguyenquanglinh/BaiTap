@@ -49,11 +49,10 @@
             this.cbbThuatToan.Items.AddRange(new object[] {
             "dfs",
             "bfs"});
-            this.cbbThuatToan.Location = new System.Drawing.Point(216, 70);
+            this.cbbThuatToan.Location = new System.Drawing.Point(627, 27);
             this.cbbThuatToan.Name = "cbbThuatToan";
             this.cbbThuatToan.Size = new System.Drawing.Size(85, 21);
             this.cbbThuatToan.TabIndex = 0;
-            this.cbbThuatToan.SelectedValueChanged += new System.EventHandler(this.cbbThuatToan_SelectedValueChanged);
             // 
             // groupBox1
             // 
@@ -61,7 +60,7 @@
             this.groupBox1.Controls.Add(this.btnToMau);
             this.groupBox1.Controls.Add(this.btnThuTuDuyet);
             this.groupBox1.Controls.Add(this.btnTimDuong);
-            this.groupBox1.Location = new System.Drawing.Point(146, 267);
+            this.groupBox1.Location = new System.Drawing.Point(515, 285);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(196, 92);
             this.groupBox1.TabIndex = 1;
@@ -76,7 +75,6 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Lưu file";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnToMau
             // 
@@ -86,7 +84,6 @@
             this.btnToMau.TabIndex = 5;
             this.btnToMau.Text = "Tô màu";
             this.btnToMau.UseVisualStyleBackColor = true;
-            this.btnToMau.Click += new System.EventHandler(this.btnToMau_Click);
             // 
             // btnThuTuDuyet
             // 
@@ -96,7 +93,6 @@
             this.btnThuTuDuyet.TabIndex = 3;
             this.btnThuTuDuyet.Text = "Thứ tự duyệt";
             this.btnThuTuDuyet.UseVisualStyleBackColor = true;
-            this.btnThuTuDuyet.Click += new System.EventHandler(this.btnThuTuDuyet_Click);
             // 
             // btnTimDuong
             // 
@@ -106,7 +102,6 @@
             this.btnTimDuong.TabIndex = 2;
             this.btnTimDuong.Text = "Tìm đường";
             this.btnTimDuong.UseVisualStyleBackColor = true;
-            this.btnTimDuong.Click += new System.EventHandler(this.btnTimDuong_Click);
             // 
             // menuStrip1
             // 
@@ -114,7 +109,7 @@
             this.fIleToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(335, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(723, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -125,27 +120,27 @@
             this.saveToolStripMenuItem});
             this.fIleToolStripMenuItem.Name = "fIleToolStripMenuItem";
             this.fIleToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fIleToolStripMenuItem.Text = "FIle";
+            this.fIleToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Text = "Save...";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 351);
+            this.ClientSize = new System.Drawing.Size(723, 389);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbbThuatToan);
             this.Controls.Add(this.menuStrip1);

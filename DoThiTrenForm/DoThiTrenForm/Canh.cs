@@ -12,6 +12,7 @@ namespace DoThiTrenForm
         {
             DiemDau = dDau;
             DiemCuoi = dCuoi;
+            this.Color = System.Drawing.Color.Blue;
         }
 
         public override string ToString()
@@ -32,5 +33,8 @@ namespace DoThiTrenForm
         public IDiem DiemDau { get; set; }
 
         public IDiem DiemCuoi { get; set; }
+
+
+        public System.Drawing.Color Color { get; set; }
     }
 }

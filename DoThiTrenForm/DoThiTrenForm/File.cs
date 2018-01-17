@@ -10,90 +10,131 @@ namespace DoThiTrenForm
 {
     interface CacFile
     {
-        void LuuFile(string fileName);
-        void DocFile(string fileName);
+        void LuuFile(string fileName, IDoThi doThi);
+        IDoThi DocFile(string fileName);
     }
+
     public class FileText : CacFile
     {
-        string pathDinh = "D:\\BaiTap1\\TimDuongTrenForm\\Data\\";
-        string pathArr = "D:\\BaiTap1\\TimDuongTrenForm\\Data\\Arr\\";
-        DoThi DT;
-        DrawCanh draw;
+        string dataPath = "D:\\BaiTap1\\TimDuongTrenForm\\Data\\";
+        //string pathArr = "D:\\BaiTap1\\TimDuongTrenForm\\Data\\Arr\\";
+        //DoThi DT;
+        //DrawCanh draw;
 
-
-        public FileText(DoThi dT, DrawCanh draw)
+        public FileText()
         {
-            DT = dT;
-            this.draw = draw;
+
         }
 
-        public void LuuFile(string fileName)
+        public void LuuFile(string fileName, IDoThi doThi)
         {
-            LuuFileDinh(fileName);
-            LuuFileCanh(fileName);
+            LuuFileDinh(fileName, doThi);
+            LuuFileCanh(fileName, doThi);
         }
 
-        private void LuuFileCanh(string fileName)
+        private void LuuFileCanh(string fileName, IDoThi doThi)
         {
-            string pathFileCanh = pathArr + fileName + ".txt";
-            foreach (var canh in DT.tapCanh)
+            string pathFileDinh = Path.Combine(dataPath, fileName + ".arr");
+            foreach (var canh in doThi.TapCanh)
             {
                 var appendTextCanh = canh + Environment.NewLine;
-                File.AppendAllText(pathFileCanh, appendTextCanh);
+                File.AppendAllText(pathFileDinh, appendTextCanh);
             }
 
         }
 
-        private void LuuFileDinh(string fileName)
+        private void LuuFileDinh(string fileName, IDoThi doThi)
         {
-            string pathFileDinh = pathDinh + fileName + ".txt";
-            foreach (var dinh in DT.tapDinh)
+            string pathFileDinh = Path.Combine(dataPath, fileName + ".pos");
+            foreach (var dinh in doThi.TapDinh)
             {
                 var appendTextDinh = dinh + Environment.NewLine;
                 File.AppendAllText(pathFileDinh, appendTextDinh);
             }
         }
 
-        public void DocFile(string fileName)
+        private Tuple<string, string> GetDataFiles(string fileName)
         {
-            string path = pathDinh + fileName + ".txt";
-            var toaDoDinh = DocFileText(path);
-            for (int i = 0; i < toaDoDinh.Count; i += 2)
-            {
-                var dDiem = new Diem() { Location = new Point(int.Parse(toaDoDinh[i]), int.Parse(toaDoDinh[i + 1])) };
-                dDiem.Color = Color.Blue;
-                draw.f1.Controls.Add(dDiem);
-                if (!DT.tapDinh.Contains(dDiem))
-                    DT.ThemDinh(dDiem);
-            }
-            path = pathArr + fileName + ".txt";
-
-            var cacTapCanh = DocFileText(path);
-            for (int i = 0; i < cacTapCanh.Count; i += 2)
-            {
-                var dDau = DT.Lay1DiemTrongTapDinh(cacTapCanh[i]);
-
-                var dCuoi = DT.Lay1DiemTrongTapDinh(cacTapCanh[i]);
-                var canh = new Canh(dDau, dCuoi);
-                if (!DT.tapCanh.Contains(canh))
-                    DT.ThemCanh(canh);
-            }
+            string pathFile = Path.Combine(dataPath, fileName);
+            return new Tuple<string, string>(pathFile + ".pos", pathFile + ".arr");
         }
 
-        private List<string> DocFileText(string pathFileName)
+        public IDoThi DocFile(string fileName)
         {
-            var xx = File.ReadAllLines(pathFileName);
-            var tapGiaTri = new List<string>();
-            foreach (var dong in xx)
+            IDoThi doThi = new DoThi();
+            var toaDoDinh = DocFileText(GetDataFiles(fileName).Item1);
+            var cacTapCanh = DocFileText(GetDataFiles(fileName).Item2);
+
+
+            for (int i = 0; i < toaDoDinh.Count; i++)
             {
-                foreach (var item in dong.Split(' '))
-                {
-                    tapGiaTri.Add(item);
-                }
+                var dDiem = new Diem() { Location = new Point(toaDoDinh[i][0], toaDoDinh[i][1]), PointName = i.ToString() };
+                doThi.ThemDinh(dDiem);
+            }
+
+            for (int i = 0; i < cacTapCanh.Count; i++)
+            {
+                doThi.ThemCanh(new Canh(doThi[cacTapCanh[i][0].ToString()], doThi[cacTapCanh[i][1].ToString()]));
+            }
+            return doThi;
+
+            //for (int i = 0; i < cacTapCanh.Count; i += 2)
+            //{
+            //    var dDau = DT.Lay1DiemTrongTapDinh(cacTapCanh[i]);
+
+            //    var dCuoi = DT.Lay1DiemTrongTapDinh(cacTapCanh[i]);
+            //    var canh = new Canh(dDau, dCuoi);
+            //    if (!DT.tapCanh.Contains(canh))
+            //        DT.ThemCanh(canh);
+            //}
+
+            //List<IDiem> listDiem = new List<IDiem>();
+
+
+
+            //doThi.TapDinh = listDiem;
+
+            //var cacTapCanh = DocFileText(GetDataFiles(fileName).Item2);
+            //for (int i = 0; i < cacTapCanh.Count; i++)
+            //{
+
+            //}
+
+
+            //for (int i = 0; i < cacTapCanh.Count; i += 2)
+            //{
+            //    var dDau = DT.Lay1DiemTrongTapDinh(cacTapCanh[i]);
+
+            //    var dCuoi = DT.Lay1DiemTrongTapDinh(cacTapCanh[i]);
+            //    var canh = new Canh(dDau, dCuoi);
+            //    if (!DT.tapCanh.Contains(canh))
+            //        DT.ThemCanh(canh);
+            //}
+        }
+
+        private List<int[]> DocFileText(string pathFileName)
+        {
+            var allLines = File.ReadAllLines(pathFileName);
+            var tapGiaTri = new List<int[]>();
+            foreach (var dong in allLines)
+            {
+                var arr = dong.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+                if (arr.Length != 2)
+                    throw new DataInvalidException(pathFileName);
+
+                tapGiaTri.Add(new int[] { int.Parse(arr[0]), int.Parse(arr[1]) });
             }
             return tapGiaTri;
         }
+    }
 
+    class DataInvalidException : Exception
+    {
+        public DataInvalidException(string pathFileName)
+            : base("File loi:" + pathFileName)
+        {
+
+        }
 
     }
 }
