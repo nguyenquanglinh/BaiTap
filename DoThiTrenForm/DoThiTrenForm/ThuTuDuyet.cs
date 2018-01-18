@@ -35,7 +35,6 @@ namespace DoThiTrenForm
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             dinh = int.Parse(comboBox1.SelectedItem.ToString());
-       
         }
 
         private void btnDuyet_Click(object sender, EventArgs e)

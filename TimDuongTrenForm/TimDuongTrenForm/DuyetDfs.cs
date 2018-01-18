@@ -30,7 +30,7 @@ namespace TimDuongTrenForm
         List<Hinh> DemDoThi()
         {
             var soDothi = new List<Hinh>();
-          var cacDinhDangDuyet = ThuTuDinhDuyet(0);
+            var cacDinhDangDuyet = ThuTuDinhDuyet(0);
             if (cacDinhDangDuyet.tapDinh[0] != null)
                 soDothi.Add(cacDinhDangDuyet);
             var sss = dt.tapDinh.Count;
@@ -140,7 +140,7 @@ namespace TimDuongTrenForm
                     dinh.Color = color;
         }
 
-        
+
         internal void TimDuongMin(int bd, int kt)
         {
             var dothi = DoThiChuaDiemBatDauVaKetThuc(bd, kt);

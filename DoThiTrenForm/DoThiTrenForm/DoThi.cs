@@ -55,27 +55,14 @@ namespace DoThiTrenForm
             diemDinh.OnDoubleClickK += diemDinh_OnDoubleClick;
             diemDinh.ClickOn += diemDinh_ClickOn;
         }
-        IDiem _lastedClick;
-        IDiem lastedClick
-        {
-            get
-            {
-                return _lastedClick;
-            }
-            set
-            {
-                _lastedClick = value;
-                if (value != null)
-                    Console.WriteLine("added :" + value.PointName);
-                else
-                    Console.WriteLine("added : NULL");
-            }
-        }
+
+        IDiem lastedClick;
+
         void diemDinh_ClickOn(object sender, DiemClickedArgs e)
         {
             var ht = sender as IDiem;
             ht.Color = Color.Red;
-             
+
 
             if (lastedClick == null)
             {
@@ -135,5 +122,11 @@ namespace DoThiTrenForm
         }
 
         public event EventHandler OnGraphChanged;
+
+
+        public int SoDinhCuaDoThi
+        {
+            get { return this.tapDinh.Count; }
+        }
     }
 }

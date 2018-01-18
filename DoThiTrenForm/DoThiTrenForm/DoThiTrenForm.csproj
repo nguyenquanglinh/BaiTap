@@ -66,10 +66,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GraphAlo.cs" />
+    <Compile Include="Hinh.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThuatToan.cs" />
     <EmbeddedResource Include="Diem.resx">
       <DependentUpon>Diem.cs</DependentUpon>
     </EmbeddedResource>

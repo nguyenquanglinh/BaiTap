@@ -19,7 +19,7 @@ namespace DoThiTrenForm
         IEnumerable<ICanh> TapCanh { get; }
         IEnumerable<IDiem> TapDinh { get; }
         IDiem this[string name] { get; }
-
+        int SoDinhCuaDoThi { get; }
         void ThemCanh(Canh canh);
         void ThemDinh(IDiem diemDinh);
 

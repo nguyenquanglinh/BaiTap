@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Drawing;
 namespace DoThiTrenForm
 {
-    interface CacFile
+    public interface CacFile
     {
         void LuuFile(string fileName, IDoThi doThi);
         IDoThi DocFile(string fileName);
@@ -17,13 +17,9 @@ namespace DoThiTrenForm
     public class FileText : CacFile
     {
         string dataPath = "D:\\BaiTap1\\TimDuongTrenForm\\Data\\";
-        //string pathArr = "D:\\BaiTap1\\TimDuongTrenForm\\Data\\Arr\\";
-        //DoThi DT;
-        //DrawCanh draw;
 
         public FileText()
         {
-
         }
 
         public void LuuFile(string fileName, IDoThi doThi)
@@ -100,7 +96,6 @@ namespace DoThiTrenForm
         public DataInvalidException(string pathFileName)
             : base("File loi:" + pathFileName)
         {
-
         }
 
     }
