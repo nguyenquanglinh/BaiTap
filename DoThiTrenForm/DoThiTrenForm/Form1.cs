@@ -16,8 +16,10 @@ namespace DoThiTrenForm
         IDoThi doThi;
         CacFile doFile = new FileText();
         GrapDrawler drawler;
+
         public Form1()
         {
+            drawler = new GrapDrawler(panel);
             InitializeComponent();
             doThi = new DoThi();
         }
@@ -37,8 +39,7 @@ namespace DoThiTrenForm
 
         void VeDoThi()
         {
-            this.panel.Controls.Clear();
-            drawler = new GrapDrawler(this.panel);
+            this.panel.Controls.Clear(); 
             drawler.Draw(this.doThi);
             this.panel.Invalidate();
         }
@@ -51,6 +52,7 @@ namespace DoThiTrenForm
                 this.panel.Controls.Clear();
                 var fileName = Path.GetFileNameWithoutExtension(ofd.FileName);
                 doThi = doFile.DocFile(fileName);
+                doThi.OnGraphChanged -= doThi_OnGraphChanged;
                 doThi.OnGraphChanged += doThi_OnGraphChanged;
                 VeDoThi();
             }
@@ -82,6 +84,7 @@ namespace DoThiTrenForm
             {
                 doThi.ThemDinh(diem);
                 this.panel.Controls.Add(diem);
+                doThi.OnGraphChanged -= doThi_OnGraphChanged;
                 doThi.OnGraphChanged += doThi_OnGraphChanged;
             }
         }

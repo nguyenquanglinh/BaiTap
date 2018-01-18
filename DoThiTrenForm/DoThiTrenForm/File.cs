@@ -77,39 +77,6 @@ namespace DoThiTrenForm
                 doThi.ThemCanh(new Canh(doThi[cacTapCanh[i][0].ToString()], doThi[cacTapCanh[i][1].ToString()]));
             }
             return doThi;
-
-            //for (int i = 0; i < cacTapCanh.Count; i += 2)
-            //{
-            //    var dDau = DT.Lay1DiemTrongTapDinh(cacTapCanh[i]);
-
-            //    var dCuoi = DT.Lay1DiemTrongTapDinh(cacTapCanh[i]);
-            //    var canh = new Canh(dDau, dCuoi);
-            //    if (!DT.tapCanh.Contains(canh))
-            //        DT.ThemCanh(canh);
-            //}
-
-            //List<IDiem> listDiem = new List<IDiem>();
-
-
-
-            //doThi.TapDinh = listDiem;
-
-            //var cacTapCanh = DocFileText(GetDataFiles(fileName).Item2);
-            //for (int i = 0; i < cacTapCanh.Count; i++)
-            //{
-
-            //}
-
-
-            //for (int i = 0; i < cacTapCanh.Count; i += 2)
-            //{
-            //    var dDau = DT.Lay1DiemTrongTapDinh(cacTapCanh[i]);
-
-            //    var dCuoi = DT.Lay1DiemTrongTapDinh(cacTapCanh[i]);
-            //    var canh = new Canh(dDau, dCuoi);
-            //    if (!DT.tapCanh.Contains(canh))
-            //        DT.ThemCanh(canh);
-            //}
         }
 
         private List<int[]> DocFileText(string pathFileName)

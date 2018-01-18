@@ -51,15 +51,31 @@ namespace DoThiTrenForm
                 return;
             tapDinh.Add(diemDinh);
             GhiTenDiem();
+
             diemDinh.OnDoubleClickK += diemDinh_OnDoubleClick;
             diemDinh.ClickOn += diemDinh_ClickOn;
         }
-
-        IDiem lastedClick;
+        IDiem _lastedClick;
+        IDiem lastedClick
+        {
+            get
+            {
+                return _lastedClick;
+            }
+            set
+            {
+                _lastedClick = value;
+                if (value != null)
+                    Console.WriteLine("added :" + value.PointName);
+                else
+                    Console.WriteLine("added : NULL");
+            }
+        }
         void diemDinh_ClickOn(object sender, DiemClickedArgs e)
         {
             var ht = sender as IDiem;
             ht.Color = Color.Red;
+             
 
             if (lastedClick == null)
             {
@@ -75,6 +91,7 @@ namespace DoThiTrenForm
             ht.Color = Color.Blue;
             lastedClick.Color = Color.Blue;
             this.ThemCanh(new Canh(ht, lastedClick));
+            System.Windows.Forms.MessageBox.Show("Test");
             lastedClick = null;
 
         }
@@ -93,6 +110,7 @@ namespace DoThiTrenForm
         {
             XoaMotDiem(this[e.Name]);
             NotifyChanged();
+            lastedClick = null;
         }
 
         public void XoaMotDiem(IDiem diemClick)

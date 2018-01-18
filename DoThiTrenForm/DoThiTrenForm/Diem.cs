@@ -23,7 +23,11 @@ namespace DoThiTrenForm
         public Color Color
         {
             get { return color; }
-            set { color = value; this.Invalidate(); }
+            set
+            {
+                color = value;
+                this.Invalidate();
+            }
         }
 
         public string PointName
@@ -81,7 +85,6 @@ namespace DoThiTrenForm
                 this.ClickOn(this, new DiemClickedArgs { Name = this.PointName });
         }
     }
-
 
     public class DiemClickedArgs : EventArgs
     {

@@ -41,7 +41,7 @@ namespace DoThiTrenForm
         {
             foreach (var item in doThi.TapCanh)
                 Draw(item);
-           
+
         }
     }
 }
