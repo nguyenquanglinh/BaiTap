@@ -1,0 +1,5 @@
+D:\BaiTap1\TimDuongTrenForm\DoThi\bin\Debug\DoThi.dll
+D:\BaiTap1\TimDuongTrenForm\DoThi\bin\Debug\DoThi.pdb
+D:\BaiTap1\TimDuongTrenForm\DoThi\obj\Debug\DoThi.csprojResolveAssemblyReference.cache
+D:\BaiTap1\TimDuongTrenForm\DoThi\obj\Debug\DoThi.dll
+D:\BaiTap1\TimDuongTrenForm\DoThi\obj\Debug\DoThi.pdb

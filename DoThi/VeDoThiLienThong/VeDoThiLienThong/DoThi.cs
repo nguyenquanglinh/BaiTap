@@ -52,9 +52,7 @@ namespace VeDoThiLienThong
             tapCanh = new List<Canh>();
             tapDinhDt = new List<HinhTron>();
             f1.Paint += f1_Paint;
-        }
-
-        
+        }       
 
         //kiem tra hinh tron da co
         bool OverLapHt(HinhTron ht)
@@ -96,8 +94,6 @@ namespace VeDoThiLienThong
         //thêm cạnh vào tập cạnh từ ht a ht b
         public void ThemCanh(Canh canh)
         {
-
-
             if (!tapCanh.Contains(canh))
             {
                 tapCanh.Add(canh);
@@ -415,21 +411,6 @@ namespace VeDoThiLienThong
 
         #endregion
 
-
-        Color Mau()
-        {
-            Random rd = new Random();
-            var list = new List<Color>();
-            list.Add(Color.Blue);
-            list.Add(Color.Red);
-            list.Add(Color.PeachPuff);
-            list.Add(Color.Pink);
-            list.Add(Color.Purple);
-            list.Add(Color.PowderBlue);
-            list.Add(Color.BurlyWood);
-            return list[rd.Next(0, list.Count)];
-        }
-
         internal void ToMau()
         {
             if (tapDinhDt.Count == 0)
@@ -459,7 +440,6 @@ namespace VeDoThiLienThong
 
         void VeCacCanhTren1DoThi(Hinh doThi, Color color)
         {
-
             foreach (var item in doThi.tapCanh)
             {
                 item.DiemCuoi.Color = color;
@@ -467,7 +447,6 @@ namespace VeDoThiLienThong
             }
             foreach (var Dinh in doThi.tapDinh)
                 Dinh.Color = color;
-
         }
 
         internal void DocFile()

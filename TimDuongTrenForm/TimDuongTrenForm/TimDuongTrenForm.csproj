@@ -67,6 +67,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Hinh.cs" />
+    <Compile Include="IDiem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DuyetDinh.cs">
@@ -75,6 +76,8 @@
     <Compile Include="DuyetDinh.Designer.cs">
       <DependentUpon>DuyetDinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Redraw.cs" />
+    <Compile Include="ThuatToan.cs" />
     <Compile Include="TimDuong.cs">
       <SubType>Form</SubType>
     </Compile>

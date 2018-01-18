@@ -22,7 +22,6 @@ namespace TimDuongTrenForm
         public DuyetDinh(DoThi dt)
             : this()
         {
-            // TODO: Complete member initialization
             this.dt = dt;
             CacDinhDuyet();
         }

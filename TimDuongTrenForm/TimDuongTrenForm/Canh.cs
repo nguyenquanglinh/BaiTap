@@ -8,9 +8,9 @@ namespace TimDuongTrenForm
 {
     public class Canh
     {
-        public DiemHinhTron DiemDau { get; set; }
-        public DiemHinhTron DiemCuoi { get; set; }
-        public Canh(DiemHinhTron diemDau, DiemHinhTron diemCuoi)
+        public IDiem DiemDau { get; set; }
+        public IDiem DiemCuoi { get; set; }
+        public Canh(IDiem diemDau, IDiem diemCuoi)
         {
             DiemDau = diemDau;
             DiemCuoi = diemCuoi;

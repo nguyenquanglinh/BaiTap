@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="canh.cs" />
     <Compile Include="DoThi.cs" />
-    <Compile Include="DoThi1.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

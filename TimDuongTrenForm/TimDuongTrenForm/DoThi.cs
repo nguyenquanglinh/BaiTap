@@ -12,22 +12,14 @@ namespace TimDuongTrenForm
     {
         Form form;
         int demDinh = 0;
-        public List<DiemHinhTron> tapDinh;
+        public List<IDiem> tapDinh;
         public List<Canh> tapCanh;
         DiemHinhTron lastedClick = null;
-
-        public DoThi()
-        {
-
-        }
-        
-
-
 
         public DoThi(Form f1)
         {
             form = f1;
-            tapDinh = new List<DiemHinhTron>();
+            tapDinh = new List<IDiem>();
             tapCanh = new List<Canh>();
             f1.Paint += f1_Paint;
         }
@@ -40,10 +32,6 @@ namespace TimDuongTrenForm
         private void Draw()
         {
             GhiTenDinhLenHinhTron();
-            foreach (var item in tapCanh)
-            {
-                VeCanh(item);
-            }
         }
 
         private void GhiTenDinhLenHinhTron()
@@ -67,22 +55,6 @@ namespace TimDuongTrenForm
                     tapCanh.RemoveAt(i);
                 }
             }
-        }
-
-       public void VeCanh(Canh canh)
-        {
-            var dDau = canh.DiemDau;
-            var dCuoi = canh.DiemCuoi;
-            var color = dCuoi.Color;
-            using (Graphics g = form.CreateGraphics())
-            {
-                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                using (Pen p = new Pen(color, 2))
-                {
-                    g.DrawLine(p, dDau.Center, dCuoi.Center);
-                }
-            }
-
         }
 
         DiemHinhTron VeHinhTron(int x, int y)
@@ -126,7 +98,7 @@ namespace TimDuongTrenForm
 
         }
 
-        public DiemHinhTron LayHinhTron(int ten)
+        public IDiem LayHinhTron(int ten)
         {
             foreach (var item in tapDinh)
             {
@@ -173,7 +145,7 @@ namespace TimDuongTrenForm
             lastedClick = null;
         }
 
-        private bool OverLap(DiemHinhTron ht)
+        private bool OverLap(IDiem ht)
         {
             foreach (var item in this.tapDinh)
                 if (ht.Overlap(item))
@@ -182,6 +154,6 @@ namespace TimDuongTrenForm
         }
 
 
-        
+
     }
 }

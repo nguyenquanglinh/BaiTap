@@ -63,6 +63,7 @@
             this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nhập điểm bắt đầu";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -72,6 +73,7 @@
             this.label2.Size = new System.Drawing.Size(101, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nhập điểm kết thúc";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 

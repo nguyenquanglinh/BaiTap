@@ -8,43 +8,40 @@ using System.Windows;
 using System.Windows.Forms;
 namespace DoThiTrenForm
 {
-    interface DrawUserControls
+
+    public class GrapDrawler : IGraphDrawler
     {
-        void Draw(Canh canh);
-    }
-    public class DrawCanh : DrawUserControls
-    {
-        //f1 from1
-        public Form f1;
-        public DrawCanh(Form f1)
+        public Panel f1;
+        public GrapDrawler(Panel f1)
         {
             this.f1 = f1;
         }
-        public void Draw(Canh canh)
-        {
 
+        void Draw(ICanh canh)
+        {
             var dDau = canh.DiemDau;
             var dCuoi = canh.DiemCuoi;
-            var color = dCuoi.Color;
+
             using (Graphics g = f1.CreateGraphics())
             {
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                using (Pen p = new Pen(color, 2))
-                {
+                using (Pen p = new Pen(canh.Color, 2))
                     g.DrawLine(p, dDau.Center, dCuoi.Center);
-                }
             }
         }
 
-        public void DrawHinh(Hinh hinh)
+        public void Draw(IDoThi doThi)
         {
-            foreach (var canh in hinh.tapCanh)
-            {
-                Draw(canh);
-            }
+            foreach (var item in doThi.TapDinh)
+                this.f1.Controls.Add(item as Diem);
+            UpdateEdge(doThi);
         }
 
-        //public void
-
+        public void UpdateEdge(IDoThi doThi)
+        {
+            foreach (var item in doThi.TapCanh)
+                Draw(item);
+           
+        }
     }
 }

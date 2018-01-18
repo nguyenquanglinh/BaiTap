@@ -10,10 +10,10 @@ namespace TimDuongTrenForm
     {
         public Hinh()
         {
-            tapDinh = new List<DiemHinhTron>();
+            tapDinh = new List<IDiem>();
             tapCanh = new List<Canh>();
         }
-        public List<DiemHinhTron> tapDinh;
+        public List<IDiem> tapDinh;
         public List<Canh> tapCanh;
     }
 }
