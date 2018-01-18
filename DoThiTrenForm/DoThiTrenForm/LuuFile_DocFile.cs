@@ -18,7 +18,6 @@ namespace DoThiTrenForm
             InitializeComponent();
         }
         string path = "D:\\BaiTap1\\TimDuongTrenForm\\Data\\";
-        FileText fileText;
         public LuuFile_DocFile(DoThi dt, DrawCanh draw)
             : this()
         {

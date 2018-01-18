@@ -38,24 +38,27 @@
             this.fIleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbbThuatToan
             // 
+            this.cbbThuatToan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbThuatToan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbThuatToan.FormattingEnabled = true;
             this.cbbThuatToan.Items.AddRange(new object[] {
             "dfs",
             "bfs"});
-            this.cbbThuatToan.Location = new System.Drawing.Point(627, 27);
+            this.cbbThuatToan.Location = new System.Drawing.Point(617, 258);
             this.cbbThuatToan.Name = "cbbThuatToan";
             this.cbbThuatToan.Size = new System.Drawing.Size(85, 21);
             this.cbbThuatToan.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnToMau);
             this.groupBox1.Controls.Add(this.btnThuTuDuyet);
@@ -125,22 +128,33 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saveToolStripMenuItem.Text = "Save...";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // panel
+            // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel.Location = new System.Drawing.Point(0, 27);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(517, 370);
+            this.panel.TabIndex = 3;
+            this.panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_MouseUp);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 389);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbbThuatToan);
             this.Controls.Add(this.menuStrip1);
@@ -168,6 +182,7 @@
         private System.Windows.Forms.ToolStripMenuItem fIleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.Panel panel;
     }
 }
 

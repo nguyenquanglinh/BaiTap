@@ -28,7 +28,8 @@ namespace DoThiTrenForm
 
     public interface IDiem
     {
-        event EventHandler<DiemDoubleClickedArgs> OnDoubleClick;
+        event EventHandler<DiemDoubleClickedArgs> OnDoubleClickK;
+        event EventHandler<DiemClickedArgs> ClickOn;
         Point Center { get; }
         Color Color { get; set; }
         bool Overlap(Diem other);

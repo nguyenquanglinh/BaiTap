@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,17 +36,6 @@ namespace DoThiTrenForm
             }
         }
 
-
-        //int demDinh = 0;
-        //DrawCanh draw;
-
-        //public DoThi(DrawCanh draw)
-        //{
-        //    //this.draw = draw;
-        //    tapDinh = new List<IDiem>();
-        //    tapCanh = new List<Canh>();
-        //}
-
         public void ThemCanh(Canh canh)
         {
             if (!tapCanh.Contains(canh))
@@ -55,28 +45,54 @@ namespace DoThiTrenForm
             }
         }
 
-        //private void GhiTenHinh()
-        //{
-        //    demDinh = 0;
-        //    foreach (var ht in tapDinh)
-        //    {
-        //        ht.PointName = demDinh.ToString();
-        //        demDinh++;
-        //    }
-        //}
-
         public void ThemDinh(IDiem diemDinh)
         {
             if (tapDinh.Contains(diemDinh))
                 return;
             tapDinh.Add(diemDinh);
-            diemDinh.OnDoubleClick += diemDinh_OnDoubleClick;
-            NotifyChanged();
+            GhiTenDiem();
+            diemDinh.OnDoubleClickK += diemDinh_OnDoubleClick;
+            diemDinh.ClickOn += diemDinh_ClickOn;
         }
 
-        void diemDinh_OnDoubleClick(object sender, DiemDoubleClickedArgs e)
+        IDiem lastedClick;
+        void diemDinh_ClickOn(object sender, DiemClickedArgs e)
+        {
+            var ht = sender as IDiem;
+            ht.Color = Color.Red;
+
+            if (lastedClick == null)
+            {
+                lastedClick = ht;
+                return;
+            }
+            if (ht.Equals(lastedClick))
+            {
+                ht.Color = Color.Blue;
+                lastedClick = null;
+                return;
+            }
+            ht.Color = Color.Blue;
+            lastedClick.Color = Color.Blue;
+            this.ThemCanh(new Canh(ht, lastedClick));
+            lastedClick = null;
+
+        }
+
+        private void GhiTenDiem()
+        {
+            int dem = 0;
+            foreach (var diem in this.TapDinh)
+            {
+                diem.PointName = dem.ToString();
+                dem++;
+            }
+        }
+
+        private void diemDinh_OnDoubleClick(object sender, DiemDoubleClickedArgs e)
         {
             XoaMotDiem(this[e.Name]);
+            NotifyChanged();
         }
 
         public void XoaMotDiem(IDiem diemClick)
@@ -91,7 +107,6 @@ namespace DoThiTrenForm
                 }
             }
 
-            NotifyChanged();
         }
 
 
@@ -100,17 +115,6 @@ namespace DoThiTrenForm
             if (this.OnGraphChanged != null)
                 OnGraphChanged(this, new EventArgs());
         }
-
-        //public IDiem Lay1DiemTrongTapDinh(string tenDinh)
-        //{
-        //    foreach (var dinh in tapDinh)
-        //    {
-        //        if (dinh.PointName == tenDinh)
-        //            return dinh;
-        //    }
-        //    return null;
-        //}
-
 
         public event EventHandler OnGraphChanged;
     }

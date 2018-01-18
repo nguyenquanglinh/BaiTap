@@ -15,18 +15,8 @@ namespace DoThiTrenForm
         public Diem()
         {
             InitializeComponent();
-            this.Color = System.Drawing.Color.Red;
+            this.Color = System.Drawing.Color.Blue;
         }
-
-        //static DoThi dT;
-        //static DrawCanh draW;
-
-        //public Diem(DoThi dt, DrawCanh draw)
-        //    : this()
-        //{
-        //    dT = dt;
-        //    draW = draw;
-        //}
 
         Color color;
 
@@ -69,40 +59,11 @@ namespace DoThiTrenForm
             g.Dispose();
             sb.Dispose();
         }
-         
-
-        private void Diem_Click(object sender, EventArgs e)
-        {
-            //var ht = sender as IDiem;
-            //ht.Color = Color.Red;
-
-            //if (lastedClick == null)
-            //{
-            //    lastedClick = ht;
-            //    return;
-            //}
-            //if (ht.Equals(lastedClick))
-            //{
-            //    ht.Color = Color.Blue;
-            //    lastedClick = null;
-            //    return;
-            //}
-            //ht.Color = Color.Blue;
-            //lastedClick.Color = Color.Blue;
-            //canhMoi = new Canh(lastedClick, ht);
-            //if (!dT.tapCanh.Contains(canhMoi))
-            //{
-            //    dT.ThemCanh(canhMoi);
-            //    draW.Draw(canhMoi);
-            //}
-            //lastedClick = null;
-        }
 
         private void Diem_DoubleClick(object sender, EventArgs e)
         {
-            if (this.OnDoubleClick != null)
-                this.OnDoubleClick(this, new DiemDoubleClickedArgs { Name = this.PointName });
-   
+            if (this.OnDoubleClickK != null)
+                this.OnDoubleClickK(this, new DiemDoubleClickedArgs { Name = this.PointName });
         }
 
         public override string ToString()
@@ -110,7 +71,21 @@ namespace DoThiTrenForm
             return this.Center.X.ToString() + " " + this.Center.Y.ToString();
         }
 
-        public event EventHandler<DiemDoubleClickedArgs> OnDoubleClick;
+        public event EventHandler<DiemDoubleClickedArgs> OnDoubleClickK;
+
+        public event EventHandler<DiemClickedArgs> ClickOn;
+
+        private void Diem_Click(object sender, EventArgs e)
+        {
+            if (this.ClickOn != null)
+                this.ClickOn(this, new DiemClickedArgs { Name = this.PointName });
+        }
+    }
+
+
+    public class DiemClickedArgs : EventArgs
+    {
+        public string Name { get; set; }
     }
 
     public class DiemDoubleClickedArgs : EventArgs

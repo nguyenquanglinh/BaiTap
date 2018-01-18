@@ -29,8 +29,28 @@ namespace DoThiTrenForm
     {
         public List<IDiem> Duyet(IDoThi doThi, string start)
         {
-            throw new NotImplementedException();
+            return null;
         }
+
+        private void Duyet(IDoThi doThi,string start,List<Diem>result)
+        {
+            //var Ddau = dt.Lay1DiemTrongTapDinh(dinh.ToString());
+            //hinh.tapDinh.Add(Ddau);
+            //tapDinhDaDuyet[dinh] = -1;
+            //for (int i = 0; i < arr.GetLength(0); i++)
+            //{
+            //    if (arr[dinh, i] != 0)
+            //    {
+            //        var canh = new Canh(Ddau, dt.Lay1DiemTrongTapDinh(i.ToString()));
+            //        if (!hinh.tapCanh.Contains(canh))
+            //            hinh.tapCanh.Add(canh);
+            //        if (tapDinhDaDuyet[i] == 0)
+            //            ThuTuDuyetDinh(i, hinh, tapDinhDaDuyet);
+            //    }
+            //}
+
+        }
+
 
         public void TimDuong(string start, string end)
         {
@@ -50,17 +70,10 @@ namespace DoThiTrenForm
 
         public void DemDoThi()
         {
-            //foreach (var item in MTAThreadAttribute )
-            //{
-
-            //}
-            //var thuTuDuyet = ThuatToanDuyet.Duyet(null, "0");
-
         }
 
         public void TimDuongNganNhat()
         {
-
         }
     }
 }
