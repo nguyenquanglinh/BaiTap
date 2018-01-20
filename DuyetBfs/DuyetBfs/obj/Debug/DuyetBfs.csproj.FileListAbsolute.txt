@@ -1,0 +1,6 @@
+D:\BaiTap1\DuyetBfs\DuyetBfs\bin\Debug\DuyetBfs.exe.config
+D:\BaiTap1\DuyetBfs\DuyetBfs\bin\Debug\DuyetBfs.exe
+D:\BaiTap1\DuyetBfs\DuyetBfs\bin\Debug\DuyetBfs.pdb
+D:\BaiTap1\DuyetBfs\DuyetBfs\obj\Debug\DuyetBfs.csprojResolveAssemblyReference.cache
+D:\BaiTap1\DuyetBfs\DuyetBfs\obj\Debug\DuyetBfs.exe
+D:\BaiTap1\DuyetBfs\DuyetBfs\obj\Debug\DuyetBfs.pdb
