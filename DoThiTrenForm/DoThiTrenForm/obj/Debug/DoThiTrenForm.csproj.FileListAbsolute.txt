@@ -7,3 +7,4 @@ D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.csproj.GenerateRe
 D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.exe
 D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.pdb
 D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.Form1.resources
+D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.csprojResolveAssemblyReference.cache

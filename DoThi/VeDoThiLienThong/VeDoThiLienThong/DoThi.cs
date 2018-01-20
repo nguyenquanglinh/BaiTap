@@ -427,14 +427,14 @@ namespace VeDoThiLienThong
         {
             foreach (var item in soDoThi)
             {
-                var color = Mau();
+                var color = Color.Black;
                 VeCacCanhTren1DoThi(item, color);
             }
         }
 
         public void ToMauMotDoThi(Hinh dothi)
         {
-            var color = Mau();
+            var color = Color.Black;
             VeCacCanhTren1DoThi(dothi, color);
         }
 

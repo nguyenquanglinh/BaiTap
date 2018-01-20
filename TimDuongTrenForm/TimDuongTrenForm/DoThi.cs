@@ -12,14 +12,14 @@ namespace TimDuongTrenForm
     {
         Form form;
         int demDinh = 0;
-        public List<IDiem> tapDinh;
+        public List<DiemHinhTron> tapDinh;
         public List<Canh> tapCanh;
         DiemHinhTron lastedClick = null;
 
         public DoThi(Form f1)
         {
             form = f1;
-            tapDinh = new List<IDiem>();
+            tapDinh = new List<DiemHinhTron>();
             tapCanh = new List<Canh>();
             f1.Paint += f1_Paint;
         }
@@ -84,14 +84,10 @@ namespace TimDuongTrenForm
 
         public void ThemDinh(int x, int y)
         {
-            var ht = VeHinhTron(x, y);
-            if (OverLap(ht))
-                return;
-            if (!tapDinh.Contains(ht))
-            {
-                tapDinh.Add(ht);
-                form.Controls.Add(ht);
-            }
+            var ht = VeHinhTron(x, y)  ;
+
+            tapDinh.Add(ht);
+                form.Controls.Add(ht a);
             ht.Click += ht_Click;
             ht.DoubleClick += ht_DoubleClick;
             GhiTenDinhLenHinhTron();

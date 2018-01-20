@@ -34,6 +34,19 @@ namespace DoThiTrenForm
 
         public IDiem DiemCuoi { get; set; }
 
+        public int LayDiemBenCuaCanh(int x)
+        {
+            if (this.DiemCuoi.PointName == x.ToString())
+                return int.Parse(this.DiemDau.PointName);
+            else return int.Parse(this.DiemCuoi.PointName);
+        }
+        public bool CanhChung(int x)
+        {
+            if (this.DiemCuoi.PointName == x.ToString() || this.DiemDau.PointName == x.ToString())
+                return true;
+            return false;
+        }
+
 
         public System.Drawing.Color Color { get; set; }
     }
