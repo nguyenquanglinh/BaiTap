@@ -16,12 +16,12 @@ namespace DoThiTrenForm
         IDoThi doThi;
         CacFile doFile = new FileText();
         GrapDrawler drawler;
-
+        IThuatToan thuatToan;
         public Form1()
         {
-            drawler = new GrapDrawler(panel);
             InitializeComponent();
             doThi = new DoThi();
+            drawler = new GrapDrawler(panel);
         }
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
@@ -37,9 +37,9 @@ namespace DoThiTrenForm
             return false;
         }
 
-        void VeDoThi()
+        private void VeDoThi()
         {
-            this.panel.Controls.Clear(); 
+            this.panel.Controls.Clear();
             drawler.Draw(this.doThi);
             this.panel.Invalidate();
         }
@@ -47,6 +47,7 @@ namespace DoThiTrenForm
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "txt files (*.pos)|*.pos";
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 this.panel.Controls.Clear();
@@ -57,8 +58,6 @@ namespace DoThiTrenForm
                 VeDoThi();
             }
         }
-
-
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -88,10 +87,57 @@ namespace DoThiTrenForm
                 doThi.OnGraphChanged += doThi_OnGraphChanged;
             }
         }
+
         void doThi_OnGraphChanged(object sender, EventArgs e)
         {
             VeDoThi();
         }
+
+        private void btnToMau_Click(object sender, EventArgs e)
+        {
+            //chưa làm gì
+        }
+
+        private void btnTimDuong_Click(object sender, EventArgs e)
+        {
+            if (!KiemTraDieuKien())
+                return;
+            var fw = new TimDuong(doThi, thuatToan, panel);
+            fw.Show();
+        }
+
+        private bool KiemTraDieuKien()
+        {
+            if (thuatToan == null)
+            {
+                MessageBox.Show("chưa chọn thuật toán");
+                return false;
+            }
+            if (doThi.SoDinhCuaDoThi <= 1)
+            {
+                MessageBox.Show("đồ thị thị phải có ít nhất 2 đỉnh");
+                return false;
+            }
+            return true;
+        }
+
+        private void cbbThuatToan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbThuatToan.SelectedItem.ToString() == "bfs")
+                thuatToan = new DuyetBfs(doThi);
+            if (cbbThuatToan.SelectedItem.ToString() == "dfs")
+                thuatToan = new DuyetDfs(doThi);
+        }
+
+        private void btnThuTuDuyet_Click(object sender, EventArgs e)
+        {
+            if (!KiemTraDieuKien())
+                return;
+            var f2 = new ThuTuDuyet(doThi, panel);
+            f2.Show();
+        }
+
+
 
     }
 }

@@ -6,20 +6,18 @@ using System.Threading.Tasks;
 
 namespace DoThiTrenForm
 {
-    public interface ThuatToan
+
+    abstract class ThuatToan : IThuatToan
     {
-        List<IDiem> ThuTuDuyet(int viTriDuyet);
-        List<IDiem> TimDuongMin(int bd, int kt);
-    }
-    class DuyetBfs : ThuatToan
-    {
-        int[,] arr;
-        IDoThi doThi;
-        public DuyetBfs(IDoThi doThi)
+        protected IDoThi doThi;
+        protected int[,] arr;
+
+        public ThuatToan(IDoThi doThi)
         {
             this.doThi = doThi;
             Arr();
         }
+
         private void Arr()
         {
             arr = new int[doThi.SoDinhCuaDoThi, doThi.SoDinhCuaDoThi];
@@ -29,191 +27,214 @@ namespace DoThiTrenForm
             }
         }
 
-        public List<IDiem> ThuTuDuyet(int dinh)
+        protected bool KiemTraDuongDung(List<IDiem> tapDiem, int bd, int kt)
+        {
+            return tapDiem.Contains(doThi[bd.ToString()]) && tapDiem.Contains(doThi[kt.ToString()]);
+        }
+
+        public abstract List<IDiem> ThuTuDuyet(int viTriDuyet);
+        public abstract Hinh TimDuongMin(int bd, int kt);
+    }
+
+    class DuyetBfs : ThuatToan
+    {
+
+        public DuyetBfs(IDoThi doThi)
+            : base(doThi)
+        {
+
+        }
+
+        override public List<IDiem> ThuTuDuyet(int dinh)
+        {
+            Hinh hinh = DuyetDinh(dinh);
+            var result = new List<IDiem>();
+            foreach (var diem in hinh.TapDinh)
+            {
+                result.Add(diem);
+            }
+            return result;
+        }
+
+        override public Hinh TimDuongMin(int bd, int kt)
+        {
+            var doThi = ThuTuDuyet(bd);
+            if (!KiemTraDuongDung(doThi, bd, kt))
+            {
+                return null;
+            }
+
+            var dothi = DuyetDinh(bd);
+            var pc = new PhanChung(dothi);
+            var result = pc.TimDuong(bd, kt);
+            return result;
+        }
+
+
+        private Hinh DuyetDinh(int dinh)
         {
             var dinhDaDuyet = new int[arr.GetLength(0)];
             var que = new Queue<int>();
             que.Enqueue(dinh);
             dinhDaDuyet[dinh] = -1;
-            var result = new List<IDiem>();
-            var xx = new Dictionary<IDiem, IDiem>();
+            var result = new Hinh();
             while (que.Count != 0)
             {
                 dinh = que.Dequeue();
-                result.Add(doThi[dinh.ToString()]);
+                result.TapDinh.Add(doThi[dinh.ToString()]);
                 for (int i = 0; i < arr.GetLength(0); i++)
                     if (arr[dinh, i] != 0 && dinhDaDuyet[i] == 0)
                     {
                         dinhDaDuyet[i] = 1;
-                        xx.Add(doThi[i.ToString()], doThi[dinh.ToString()]);
+                        result.TapCanh.Add(new Canh(doThi[i.ToString()], doThi[dinh.ToString()]));
                         que.Enqueue(i);
                     }
             }
             return result;
         }
-
-        public List<IDiem> TimDuongMin(int bd, int kt)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 
     class DuyetDfs : ThuatToan
     {
-        IDoThi doThi;
+
         public DuyetDfs(IDoThi doThi)
+            : base(doThi)
         {
-            this.doThi = doThi;
-            Arr();
-        }
-        int[,] arr;
 
-        private void Arr()
-        {
-            arr = new int[doThi.SoDinhCuaDoThi, doThi.SoDinhCuaDoThi];
-            foreach (var canh in doThi.TapCanh)
-            {
-                arr[int.Parse(canh.DiemDau.PointName), int.Parse(canh.DiemCuoi.PointName)] = arr[int.Parse(canh.DiemCuoi.PointName), int.Parse(canh.DiemDau.PointName)] = 1;
-            }
         }
 
-        public List<IDiem> ThuTuDuyet(int viTriDuyet)
+        override public List<IDiem> ThuTuDuyet(int viTriDuyet)
         {
             var result = new List<IDiem>();
-            DuyetDinh(viTriDuyet, new List<int>(), result);
+            var hinh = DuyetDinh(viTriDuyet);
+            foreach (var item in hinh.TapDinh)
+            {
+                result.Add(item);
+            }
             return result;
         }
 
-        void DuyetDinh(int p, List<int> dinhDaDuyet, List<IDiem> result)
+        private Hinh DuyetDinh(int viTriDuyet)
         {
-            var dD = doThi[p.ToString()];
-            result.Add(dD);
-            dinhDaDuyet[p] = -1;
-            for (int i = 0; i < doThi.SoDinhCuaDoThi; i++)
+            var hinh = new Hinh();
+            var dinhDaDuyet = new int[arr.GetLength(0)];
+            var stack = new Stack<int>();
+            stack.Push(viTriDuyet);
+
+            dinhDaDuyet[viTriDuyet] = -1;
+            while (stack.Count != 0)
             {
-                if (arr[p, i] == 1 && dinhDaDuyet[i] == 0)
+                viTriDuyet = stack.Pop();
+                hinh.TapDinh.Add(doThi[viTriDuyet.ToString()]);
+                for (int i = 0; i < arr.GetLength(0); i++)
                 {
-                    var diem = doThi[i.ToString()];
-                    result.Add(diem);
-                    DuyetDinh(i, dinhDaDuyet, result);
+                    if (arr[viTriDuyet, i] != 0 && dinhDaDuyet[i] == 0)
+                    {
+                        dinhDaDuyet[i] = -1;
+                        stack.Push(i);
+                        hinh.TapCanh.Add(new Canh(doThi[viTriDuyet.ToString()], doThi[i.ToString()]));
+                    }
                 }
             }
+            return hinh;
         }
 
 
-        public List<IDiem> TimDuongMin(int bd, int kt)
+        override public Hinh TimDuongMin(int bd, int kt)
         {
-            throw new NotImplementedException();
+            var doThi = ThuTuDuyet(bd);
+            if (!KiemTraDuongDung(doThi, bd, kt))
+                return null;
+            var dothi = DuyetDinh(bd);
+            var pc = new PhanChung(dothi);
+            var result = pc.TimDuong(bd, kt);
+            return result;
         }
+
     }
 
     class PhanChung
     {
-        public PhanChung(ThuatToan thuatToan, IDoThi dothi)
+        Hinh doThi;
+        public PhanChung(Hinh hinh)
         {
-            this.thuatToan = thuatToan;
-            this.DoThi = dothi;
+            this.doThi = hinh;
+        }
+        //1
+
+        #region Tim duong min
+
+        private List<Canh> LayCacCanhKe(Hinh doThi, int ten, List<Canh> CacCanhKeTruocDo)
+        {
+            var CacCanhMoi = new List<Canh>();
+            foreach (var canh in doThi.TapCanh)
+                if (canh.CanhChung(ten))
+                    if (!CacCanhKeTruocDo.Contains(canh))
+                        CacCanhMoi.Add(canh);
+            return CacCanhMoi;
         }
 
-        public List<List<IDiem>> DemDoThi()
+        //1.1
+        private bool KiemTraDuongDung(List<IDiem> tapDiem, int bd, int kt)
         {
-            var soDoThi = new List<List<IDiem>>();
-            var dinhDaDuyet = new List<int>();
-            var dothi = thuatToan.ThuTuDuyet(0);
-            DinhDaDuyet(dinhDaDuyet, dothi);
-            if (dothi.Count != 0)
-                soDoThi.Add(dothi);
-            List<int> listNSo = Enumerable.Range(0, arr.GetLength(0)).ToList();
-            var list = listNSo.Except(dinhDaDuyet).ToList();
-            while (list.Count != 0)
-            {
-                foreach (int item in list)
-                {
-                    dothi = thuatToan.ThuTuDuyet(item);
-                    if (dothi.Count != 0)
-                        soDoThi.Add(dothi);
-                    DinhDaDuyet(dinhDaDuyet, dothi);
-                    list = list.Except(dinhDaDuyet).ToList();
-                }
-            }
-            return soDoThi;
+            return tapDiem.Contains(doThi[bd.ToString()]) && tapDiem.Contains(doThi[kt.ToString()]);
         }
 
-        void LayDoThiDung(int bd, int kt, List<IDiem> result)
+        //2.1
+        private void TimDuongDi(int bd, int kt, Hinh doThi, Hinh result, Hinh duongMin, List<Canh> cacCanhKe, List<int> dinhDaDuyet)
         {
-            var soDoThi = DemDoThi();
-            var strart = DoThi[bd.ToString()];
-            var finish = DoThi[kt.ToString()];
-            foreach (var dothi in soDoThi)
+            var cacCanhMoi = LayCacCanhKe(doThi, bd, cacCanhKe);
+            var dinhTrungGian = new int[dinhDaDuyet.Count];
+            dinhDaDuyet.CopyTo(dinhTrungGian);
+            var dinhDuyet = dinhTrungGian.ToList();
+            foreach (var item in cacCanhMoi)
             {
-                int dem = 0;
-                foreach (var diem in dothi)
+                var hinhMoi = new Hinh();
+                int dinhMoi = item.LayDiemBenCuaCanh(bd);
+                if (!duongMin.TapCanh.Contains(item))
                 {
-                    if (diem.Equals(strart) || diem.Equals(finish))
-                        dem++;
-                    if (dem == 2)
+                    if (dinhDuyet.Contains(dinhMoi))
+                        continue;
+                    dinhDuyet.Add(bd);
+                    CopyHinh(hinhMoi, duongMin);
+                    hinhMoi.TapDinh.Add(doThi[bd.ToString()]);
+                    hinhMoi.TapCanh.Add(item);
+                    if (dinhMoi == kt)
                     {
-                        result = dothi;
-                        return;
+                        hinhMoi.TapDinh.Add(doThi[kt.ToString()]);
+                        if (result.TapDinh.Count == 0)
+                            CopyHinh(result, hinhMoi);
+                        else if (result.TapDinh.Count > hinhMoi.TapDinh.Count)
+                        {
+                            result = new Hinh();
+                            CopyHinh(result, hinhMoi);
+                        }
+                        continue;
                     }
+                    TimDuongDi(dinhMoi, kt, doThi, result, hinhMoi, cacCanhMoi, dinhDuyet);
                 }
             }
         }
 
-
-
-        List<IDiem> TimDuong(int bd, int kt)
+        //2.1.1
+        private void CopyHinh(Hinh hinhMoi, Hinh duongMin)
         {
-            var doThiDung = new List<IDiem>();
-            LayDoThiDung(bd, kt, doThiDung);
-            if (doThiDung.Count == 0)
-                return null;
-            var dic = LayTatCaCacCanh();
-
-
-            throw new NotImplementedException();
-        }
-        Dictionary<int, int> LayTatCaCacCanh()
-        {
-            var dic = new Dictionary<int, int>();
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr.GetLength(1); j++)
-                {
-                    if (arr[i, j] != 0)
-                    {
-                        dic.Add(i, j);
-                        arr[j, i] = 0;
-                    }
-                }
-            }
-            return dic;
+            foreach (var dinh in duongMin.TapDinh)
+                hinhMoi.TapDinh.Add(dinh);
+            foreach (var canh in duongMin.TapCanh)
+                hinhMoi.TapCanh.Add(canh);
         }
 
-        KeyValuePair<int, int> CanhDung(Dictionary<int, int> dic, int dinh)
+        //2
+        public Hinh TimDuong(int bd, int kt)
         {
-            foreach (var giaTri in dic)
-            {
-                if (giaTri.Value == dinh || giaTri.Key == dinh)
-                    return giaTri;
-            }
-            return new KeyValuePair<int, int>();
+            var result = new Hinh();
+            TimDuongDi(bd, kt, doThi, result, new Hinh(), new List<Canh>(), new List<int>());
+            return result;
         }
 
-        private void DinhDaDuyet(List<int> tapDinhDaDuyet, List<IDiem> doThi)
-        {
-            foreach (var dinh in doThi)
-            {
-                tapDinhDaDuyet.Add(int.Parse(dinh.PointName));
-            }
-        }
+        #endregion
 
-
-        ThuatToan thuatToan;
-        private int[,] arr;
-
-        public IDoThi DoThi { get; set; }
     }
 
 }

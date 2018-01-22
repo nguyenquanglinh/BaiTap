@@ -30,8 +30,6 @@
         {
             this.cbbThuatToan = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnToMau = new System.Windows.Forms.Button();
             this.btnThuTuDuyet = new System.Windows.Forms.Button();
             this.btnTimDuong = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -55,12 +53,11 @@
             this.cbbThuatToan.Name = "cbbThuatToan";
             this.cbbThuatToan.Size = new System.Drawing.Size(85, 21);
             this.cbbThuatToan.TabIndex = 0;
+            this.cbbThuatToan.SelectedIndexChanged += new System.EventHandler(this.cbbThuatToan_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.btnToMau);
             this.groupBox1.Controls.Add(this.btnThuTuDuyet);
             this.groupBox1.Controls.Add(this.btnTimDuong);
             this.groupBox1.Location = new System.Drawing.Point(515, 285);
@@ -70,41 +67,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bảng điều khiển";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(22, 63);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Lưu file";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btnToMau
-            // 
-            this.btnToMau.Location = new System.Drawing.Point(22, 28);
-            this.btnToMau.Name = "btnToMau";
-            this.btnToMau.Size = new System.Drawing.Size(75, 23);
-            this.btnToMau.TabIndex = 5;
-            this.btnToMau.Text = "Tô màu";
-            this.btnToMau.UseVisualStyleBackColor = true;
-            // 
             // btnThuTuDuyet
             // 
-            this.btnThuTuDuyet.Location = new System.Drawing.Point(112, 63);
+            this.btnThuTuDuyet.Location = new System.Drawing.Point(112, 30);
             this.btnThuTuDuyet.Name = "btnThuTuDuyet";
             this.btnThuTuDuyet.Size = new System.Drawing.Size(75, 23);
             this.btnThuTuDuyet.TabIndex = 3;
             this.btnThuTuDuyet.Text = "Thứ tự duyệt";
             this.btnThuTuDuyet.UseVisualStyleBackColor = true;
+            this.btnThuTuDuyet.Click += new System.EventHandler(this.btnThuTuDuyet_Click);
             // 
             // btnTimDuong
             // 
-            this.btnTimDuong.Location = new System.Drawing.Point(112, 28);
+            this.btnTimDuong.Location = new System.Drawing.Point(8, 30);
             this.btnTimDuong.Name = "btnTimDuong";
             this.btnTimDuong.Size = new System.Drawing.Size(75, 23);
             this.btnTimDuong.TabIndex = 2;
             this.btnTimDuong.Text = "Tìm đường";
             this.btnTimDuong.UseVisualStyleBackColor = true;
+            this.btnTimDuong.Click += new System.EventHandler(this.btnTimDuong_Click);
             // 
             // menuStrip1
             // 
@@ -128,14 +109,14 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save...";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -174,8 +155,6 @@
 
         private System.Windows.Forms.ComboBox cbbThuatToan;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnToMau;
         private System.Windows.Forms.Button btnThuTuDuyet;
         private System.Windows.Forms.Button btnTimDuong;
         private System.Windows.Forms.MenuStrip menuStrip1;

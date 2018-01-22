@@ -1,10 +1,12 @@
+D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.Diem.resources
+D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.Form1.resources
+D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.Properties.Resources.resources
+D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.TimDuong.resources
+D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.csproj.GenerateResource.Cache
 D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\bin\Debug\DoThiTrenForm.exe.config
 D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\bin\Debug\DoThiTrenForm.exe
 D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\bin\Debug\DoThiTrenForm.pdb
-D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.Diem.resources
-D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.Properties.Resources.resources
-D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.csproj.GenerateResource.Cache
 D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.exe
 D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.pdb
-D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.Form1.resources
 D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.csprojResolveAssemblyReference.cache
+D:\BaiTap1\DoThiTrenForm\DoThiTrenForm\obj\Debug\DoThiTrenForm.ThuTuDuyet.resources

@@ -12,6 +12,11 @@ namespace DoThiTrenForm
         void Draw(IDoThi canh);
         void UpdateEdge(IDoThi canh);
     }
+    public interface IThuatToan
+    {
+        List<IDiem> ThuTuDuyet(int viTriDuyet);
+        Hinh TimDuongMin(int bd, int kt);
+    }
 
     public interface IDoThi
     {

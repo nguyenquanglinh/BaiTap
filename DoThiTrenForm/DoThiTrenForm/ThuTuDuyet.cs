@@ -16,17 +16,18 @@ namespace DoThiTrenForm
         {
             InitializeComponent();
         }
-        DoThi dt;
-        public ThuTuDuyet(DoThi dt)
+        IDoThi dt;
+        public ThuTuDuyet(IDoThi dt, Panel panel)
             : this()
         {
             this.dt = dt;
+            this.panel = panel;
             CacDinhDuyet();
         }
 
         private void CacDinhDuyet()
         {
-            foreach (var item in dt.tapDinh)
+            foreach (var item in dt.TapDinh)
             {
                 comboBox1.Items.Add(item.PointName);
             }
@@ -39,12 +40,17 @@ namespace DoThiTrenForm
 
         private void btnDuyet_Click(object sender, EventArgs e)
         {
-            var dfs = new Dfs(dt);
-           var hinh= dfs.ThuTuDuyetDinh(dinh);
-           foreach (var dinhDuyet in hinh.tapDinh)
-           {
-               MessageBox.Show(dinhDuyet.PointName);
-           }
+            var dfs = new DuyetDfs(dt);
+            var draw = new GrapDrawler(panel);
+            var hinh = dfs.ThuTuDuyet(dinh);
+            foreach (var dinhDuyet in hinh)
+            {
+                dinhDuyet.Color = Color.Yellow;
+                draw.DrawDiem(dinhDuyet);
+                MessageBox.Show(dinhDuyet.PointName);
+            }
         }
+
+        Panel panel { get; set; }
     }
 }

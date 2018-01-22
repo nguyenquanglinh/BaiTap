@@ -42,10 +42,7 @@ namespace DuyetBfs
         public List<KeyValuePair<int, int>> TimDuong(int bd, int kt)
         {
             var ss = LayDuongDiTiepTheo(bd);
-            foreach (var item in collection)
-            {
-                
-            }
+            return null;
         }
         KeyValuePair<int, int> LayDuongDiTiepTheo(int dinh)
         {

@@ -34,11 +34,9 @@ namespace DuyetBfs
 
         static void Main(string[] args)
         {
-            var arr = DocFile();
-            var s = new ThuatToanBfs(arr);
-            var result = new List<int>();
-             s.ThuatToan(6, result);
-             
+            var ar = DocFile();
+            var s = new ThuatToanBfs(ar);
+            s.ThuatToan(2, new List<int>());
         }
     }
 }

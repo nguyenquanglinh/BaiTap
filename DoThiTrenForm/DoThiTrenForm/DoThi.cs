@@ -18,6 +18,7 @@ namespace DoThiTrenForm
         }
 
         private List<IDiem> tapDinh = new List<IDiem>();
+
         private List<ICanh> tapCanh = new List<ICanh>();
 
         public IEnumerable<IDiem> TapDinh
@@ -78,7 +79,6 @@ namespace DoThiTrenForm
             ht.Color = Color.Blue;
             lastedClick.Color = Color.Blue;
             this.ThemCanh(new Canh(ht, lastedClick));
-            System.Windows.Forms.MessageBox.Show("Test");
             lastedClick = null;
 
         }

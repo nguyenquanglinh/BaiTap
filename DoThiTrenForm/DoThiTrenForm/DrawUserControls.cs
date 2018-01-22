@@ -12,9 +12,15 @@ namespace DoThiTrenForm
     public class GrapDrawler : IGraphDrawler
     {
         public Panel f1;
+
         public GrapDrawler(Panel f1)
         {
             this.f1 = f1;
+        }
+
+        public void DrawDiem(IDiem diem)
+        {
+            f1.Controls.Add(diem as UserControl);
         }
 
         void Draw(ICanh canh)
@@ -33,7 +39,9 @@ namespace DoThiTrenForm
         public void Draw(IDoThi doThi)
         {
             foreach (var item in doThi.TapDinh)
-                this.f1.Controls.Add(item as Diem);
+            {
+                this.f1.Controls.Add(item as UserControl);
+            }
             UpdateEdge(doThi);
         }
 
@@ -41,6 +49,29 @@ namespace DoThiTrenForm
         {
             foreach (var item in doThi.TapCanh)
                 Draw(item);
+
+        }
+
+        public void DrawHinh(Hinh ss)
+        {
+            var color = MauSac();
+            foreach (var dinh in ss.TapDinh)
+            {
+                dinh.Color = color;
+                this.f1.Controls.Add(dinh as Diem);
+            }
+            foreach (var canh in ss.TapCanh)
+            {
+                canh.Color = color;
+                Draw(canh);
+            }
+        }
+
+        private Color MauSac()
+        {
+            var tapMau = new List<Color>() { Color.AliceBlue, Color.AntiqueWhite, Color.Aqua, Color.Aquamarine, Color.Azure, Color.Black, Color.BlanchedAlmond, Color.BurlyWood };
+            var ranDom = new Random();
+            return tapMau[ranDom.Next(0, tapMau.Count)];
 
         }
     }

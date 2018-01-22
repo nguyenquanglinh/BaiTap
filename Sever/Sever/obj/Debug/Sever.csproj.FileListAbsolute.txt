@@ -1,0 +1,6 @@
+D:\BaiTap1\Sever\Sever\bin\Debug\Sever.exe.config
+D:\BaiTap1\Sever\Sever\bin\Debug\Sever.exe
+D:\BaiTap1\Sever\Sever\bin\Debug\Sever.pdb
+D:\BaiTap1\Sever\Sever\obj\Debug\Sever.csprojResolveAssemblyReference.cache
+D:\BaiTap1\Sever\Sever\obj\Debug\Sever.exe
+D:\BaiTap1\Sever\Sever\obj\Debug\Sever.pdb

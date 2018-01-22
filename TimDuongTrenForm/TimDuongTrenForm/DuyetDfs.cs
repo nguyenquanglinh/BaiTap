@@ -223,7 +223,7 @@ namespace TimDuongTrenForm
             }
             return false;
         }
-
+        //1
         private List<Canh> LayCanhTuHinh(Hinh dothi, int ten, List<Canh> cacCanhKe)
         {
             var cacCanhKeDinhMoi = new List<Canh>();

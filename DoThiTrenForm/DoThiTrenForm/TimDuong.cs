@@ -16,59 +16,63 @@ namespace DoThiTrenForm
         {
             InitializeComponent();
         }
-        DoThi dt;
-        public TimDuong(DoThi dt)
+        IDoThi doThi;
+        public TimDuong(IDoThi doThi, IThuatToan thuatToan, Panel pannel)
             : this()
         {
-            // TODO: Complete member initialization
-            this.dt = dt;
-            LayTenHinhTron();
-        }
-        private void LayTenHinhTron()
-        {
 
-            cbbBd.Items.Clear();
-            cbbKt.Items.Clear();
-            foreach (var item in dt.tapDinh)
+            this.doThi = doThi;
+            this.thuatToan = thuatToan;
+            this.panel = pannel;
+            ThemLuaChon();
+        }
+
+        private void ThemLuaChon()
+        {
+            foreach (var item in doThi.TapDinh)
             {
-                cbbBd.Items.Add(item.PointName);
-                cbbKt.Items.Add(item.PointName);
+                cbbBatDau.Items.Add(item.PointName);
+                cbbKetThuc.Items.Add(item.PointName);
             }
         }
-
-        int bd = 0, kt = 0;
-
-        private void button1_Click(object sender, EventArgs e)
+        int bd = 0;
+        int kt = 0;
+        private void cbbBatDau_SelectedValueChanged(object sender, EventArgs e)
         {
-            var dfs = new Dfs(dt);
+            bd = int.Parse(cbbBatDau.SelectedItem.ToString());
+        }
+
+        private void cbbKetThuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            kt = int.Parse(cbbKetThuc.SelectedItem.ToString());
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
             if (bd == kt)
             {
-                MessageBox.Show("chọn lại điểm bắt đầu và kết thúc");
+                MessageBox.Show("điểm bắt đầu phải khác điểm kết thúc");
                 return;
             }
-            var ss = dfs.TimDuongMin(bd, kt);
-            var draw = new DrawCanh(this);
-
-            var dtt = new DoThi(draw);
-            foreach (IDiem dinh in ss.tapDinh)
+            else
             {
-                var diem = new Diem(dtt, draw) { Location = new Point(dinh.Center.X, dinh.Center.Y), Color = Color.Blue, };
-                this.Controls.Add(diem);
-            }
-            foreach (var canh in ss.tapCanh)
-            {
-                draw.Draw(canh);
+                var ss = thuatToan.TimDuongMin(bd, kt);
+                if (ss == null)
+                {
+                    MessageBox.Show("không có đường đi ");
+                    return;
+                }
+                var draw = new GrapDrawler(panel);
+                draw.DrawHinh(ss);
+                MessageBox.Show("đã tô màu phần đường đi");
+                this.Close();
             }
         }
 
-        private void cbbBd_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            bd = int.Parse(cbbBd.SelectedItem.ToString());
-        }
 
-        private void cbbKt_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            kt = int.Parse(cbbKt.SelectedItem.ToString());
-        }
+
+        IThuatToan thuatToan;
+
+        Panel panel;
     }
 }

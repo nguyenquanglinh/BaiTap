@@ -8,6 +8,10 @@ namespace DoThiTrenForm
 {
     public class Canh : DoThiTrenForm.ICanh
     {
+        public IDiem DiemDau { get; set; }
+
+        public IDiem DiemCuoi { get; set; }
+
         public Canh(IDiem dDau, IDiem dCuoi)
         {
             DiemDau = dDau;
@@ -29,10 +33,6 @@ namespace DoThiTrenForm
         {
             return this.GetHashCode() == (obj as Canh).GetHashCode();
         }
-
-        public IDiem DiemDau { get; set; }
-
-        public IDiem DiemCuoi { get; set; }
 
         public int LayDiemBenCuaCanh(int x)
         {

@@ -1,0 +1,5 @@
+D:\BaiTap1\BaiMoDauVeGiaoThucmang\BaiMoDauVeGiaoThucmang\bin\Debug\BaiMoDauVeGiaoThucmang.exe.config
+D:\BaiTap1\BaiMoDauVeGiaoThucmang\BaiMoDauVeGiaoThucmang\bin\Debug\BaiMoDauVeGiaoThucmang.exe
+D:\BaiTap1\BaiMoDauVeGiaoThucmang\BaiMoDauVeGiaoThucmang\bin\Debug\BaiMoDauVeGiaoThucmang.pdb
+D:\BaiTap1\BaiMoDauVeGiaoThucmang\BaiMoDauVeGiaoThucmang\obj\Debug\BaiMoDauVeGiaoThucmang.exe
+D:\BaiTap1\BaiMoDauVeGiaoThucmang\BaiMoDauVeGiaoThucmang\obj\Debug\BaiMoDauVeGiaoThucmang.pdb
