@@ -24,7 +24,7 @@ namespace WindowChat
         }
         IPEndPoint ip;
         Socket client;
-        const int Port = 2302;
+        const int Port = 230219;
 
         void MoKetNoi()
         {
@@ -47,6 +47,8 @@ namespace WindowChat
 
         void DongKetNoi()
         {
+            if (client == null)
+                return;
             client.Close();
         }
 
@@ -105,7 +107,6 @@ namespace WindowChat
         private void btnSend_Click(object sender, EventArgs e)
         {
             GuiTinDi();
-            
         }
 
         private void btnConnect_Click(object sender, EventArgs e)

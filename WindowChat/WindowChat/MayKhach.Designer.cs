@@ -36,26 +36,26 @@
             // 
             // KhungChat
             // 
-            this.KhungChat.Location = new System.Drawing.Point(2, 1);
+            this.KhungChat.Location = new System.Drawing.Point(1, 38);
             this.KhungChat.Name = "KhungChat";
-            this.KhungChat.Size = new System.Drawing.Size(279, 219);
+            this.KhungChat.Size = new System.Drawing.Size(279, 181);
             this.KhungChat.TabIndex = 0;
             this.KhungChat.UseCompatibleStateImageBehavior = false;
-            this.KhungChat.View = System.Windows.Forms.View.List;
+            this.KhungChat.View = System.Windows.Forms.View.Tile;
             // 
             // txtCauChat
             // 
-            this.txtCauChat.Location = new System.Drawing.Point(2, 218);
+            this.txtCauChat.Location = new System.Drawing.Point(1, 217);
             this.txtCauChat.Name = "txtCauChat";
-            this.txtCauChat.Size = new System.Drawing.Size(232, 20);
+            this.txtCauChat.Size = new System.Drawing.Size(213, 20);
             this.txtCauChat.TabIndex = 1;
             // 
             // btnSend
             // 
             this.btnSend.Enabled = false;
-            this.btnSend.Location = new System.Drawing.Point(180, 22);
+            this.btnSend.Location = new System.Drawing.Point(220, 217);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.Size = new System.Drawing.Size(60, 23);
             this.btnSend.TabIndex = 2;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -63,7 +63,7 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(13, 13);
+            this.btnConnect.Location = new System.Drawing.Point(1, 9);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 3;
@@ -76,7 +76,7 @@
             this.AcceptButton = this.btnSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(286, 247);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.KhungChat);

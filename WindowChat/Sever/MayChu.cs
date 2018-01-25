@@ -26,7 +26,8 @@ namespace Sever
         IPEndPoint ip;
         Socket Sever;
         List<Socket> cacMayKhach;
-        const int Port = 2302;
+        const int Port = 230219;
+
         void Connect()
         {
             cacMayKhach = new List<Socket>();
@@ -39,10 +40,9 @@ namespace Sever
                 {
                     while (true)
                     {
-                        Sever.Listen(10);
+                        Sever.Listen(1000);
                         var client = Sever.Accept();
                         cacMayKhach.Add(client);
-
                         Thread receive = new Thread(NhanTinVe);
                         receive.IsBackground = true;
                         receive.Start(client);
@@ -104,7 +104,6 @@ namespace Sever
         void ThemCauChat(string cauChat)
         {
             KhungChat.Items.Add(cauChat);
-            txtCauChat.Clear();
         }
 
         byte[] XuLuTinDi(object obj)
@@ -133,24 +132,12 @@ namespace Sever
             {
                 GuiTinDi(mayKhach, cauChat);
             }
-
-            if (txtCauChat.Text != null)
-                ThemCauChat(txtCauChat.Text);
-            txtCauChat.Clear();
+            cauChat = "";
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
             Connect();
-            btnSend.Enabled = true;
         }
-        void NotifyChanged()
-        {
-            if (this.OnGraphChanged != null)
-                OnGraphChanged(this, new EventArgs());
-        }
-
-        public event EventHandler OnGraphChanged;
-
     }
 }

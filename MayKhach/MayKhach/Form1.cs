@@ -15,6 +15,15 @@ namespace MayKhach
         public Form1()
         {
             InitializeComponent();
+            for (int i = 0; i < 10000; i++)
+            {
+                KhungChat.AppendText(i.ToString() + "\n");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            KhungChat.AppendText(textBox1.Text + "\n");
         }
     }
 }
