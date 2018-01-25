@@ -1,0 +1,9 @@
+D:\BaiTap1\WindowChat\WindowChat\bin\Debug\WindowChat.exe.config
+D:\BaiTap1\WindowChat\WindowChat\bin\Debug\WindowChat.exe
+D:\BaiTap1\WindowChat\WindowChat\bin\Debug\WindowChat.pdb
+D:\BaiTap1\WindowChat\WindowChat\obj\Debug\WindowChat.Properties.Resources.resources
+D:\BaiTap1\WindowChat\WindowChat\obj\Debug\WindowChat.csproj.GenerateResource.Cache
+D:\BaiTap1\WindowChat\WindowChat\obj\Debug\WindowChat.exe
+D:\BaiTap1\WindowChat\WindowChat\obj\Debug\WindowChat.pdb
+D:\BaiTap1\WindowChat\WindowChat\obj\Debug\WindowChat.MayKhach.resources
+D:\BaiTap1\WindowChat\WindowChat\obj\Debug\WindowChat.csprojResolveAssemblyReference.cache

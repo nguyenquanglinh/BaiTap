@@ -24,34 +24,44 @@ namespace Client
                 // 1. connect
                 client.Connect("127.0.0.1", PORT_NUMBER);
                 Stream stream = client.GetStream();
-
                 Console.WriteLine("Kết nối tới server");
-                Console.Write("Mời bạn nhập Họ và Tên của bạn : ");
+                while (true)
+                {
+                    Console.Write("b : ");
+                    string str = Console.ReadLine();
+                    // 2. send
+                    byte[] data = encoding.GetBytes(str);
+                    stream.Write(data, 0, data.Length);
+                    if (str == "0")
+                    {
+                        stream.Close();
+                        client.Close();
+                        Environment.Exit(0);
+                    }
+                    // 3. receive
+                    data = new byte[str.Length];
+                    stream.Read(data, 0, str.Length);
 
-                string str = Console.ReadLine();
-
-                // 2. send
-                byte[] data = encoding.GetBytes(str);
-
-                stream.Write(data, 0, data.Length);
-
-                // 3. receive
-                data = new byte[BUFFER_SIZE];
-                stream.Read(data, 0, BUFFER_SIZE);
-
-                Console.WriteLine(encoding.GetString(data));
-
+                    Console.WriteLine("a : " + encoding.GetString(data));
+                    if (encoding.GetString(data)[0] == '0')
+                    {
+                        stream.Close();
+                        client.Close();
+                        Environment.Exit(0);
+                    }
+                }
                 // 4. Close
-                stream.Close();
-                client.Close();
+
             }
 
             catch (Exception ex)
             {
+                Console.WriteLine("không có sever");
                 Console.WriteLine("Error: " + ex);
+                Console.ReadKey();
             }
 
-            Console.Read();
+
         }
     }
 }

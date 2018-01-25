@@ -1,0 +1,9 @@
+D:\BaiTap1\Client2\Client2\bin\Debug\Client2.exe.config
+D:\BaiTap1\Client2\Client2\bin\Debug\Client2.exe
+D:\BaiTap1\Client2\Client2\bin\Debug\Client2.pdb
+D:\BaiTap1\Client2\Client2\obj\Debug\Client2.csprojResolveAssemblyReference.cache
+D:\BaiTap1\Client2\Client2\obj\Debug\Client2.Form1.resources
+D:\BaiTap1\Client2\Client2\obj\Debug\Client2.Properties.Resources.resources
+D:\BaiTap1\Client2\Client2\obj\Debug\Client2.csproj.GenerateResource.Cache
+D:\BaiTap1\Client2\Client2\obj\Debug\Client2.exe
+D:\BaiTap1\Client2\Client2\obj\Debug\Client2.pdb
