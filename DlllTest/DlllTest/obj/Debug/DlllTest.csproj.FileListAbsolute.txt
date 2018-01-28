@@ -1,8 +1,0 @@
-D:\BaiTap1\DlllTest\DlllTest\bin\Debug\DlllTest.exe.config
-D:\BaiTap1\DlllTest\DlllTest\bin\Debug\DlllTest.exe
-D:\BaiTap1\DlllTest\DlllTest\bin\Debug\DlllTest.pdb
-D:\BaiTap1\DlllTest\DlllTest\bin\Debug\TestDll.dll
-D:\BaiTap1\DlllTest\DlllTest\bin\Debug\TestDll.pdb
-D:\BaiTap1\DlllTest\DlllTest\obj\Debug\DlllTest.csprojResolveAssemblyReference.cache
-D:\BaiTap1\DlllTest\DlllTest\obj\Debug\DlllTest.exe
-D:\BaiTap1\DlllTest\DlllTest\obj\Debug\DlllTest.pdb

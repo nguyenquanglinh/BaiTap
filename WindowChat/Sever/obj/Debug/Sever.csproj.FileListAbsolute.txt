@@ -6,3 +6,4 @@ D:\BaiTap1\WindowChat\Sever\obj\Debug\Sever.Properties.Resources.resources
 D:\BaiTap1\WindowChat\Sever\obj\Debug\Sever.csproj.GenerateResource.Cache
 D:\BaiTap1\WindowChat\Sever\obj\Debug\Sever.exe
 D:\BaiTap1\WindowChat\Sever\obj\Debug\Sever.pdb
+D:\BaiTap1\WindowChat\Sever\obj\Debug\Sever.csprojResolveAssemblyReference.cache

@@ -1,9 +1,0 @@
-D:\BaiTap1\MayKhach\MayKhach\bin\Debug\MayKhach.exe.config
-D:\BaiTap1\MayKhach\MayKhach\bin\Debug\MayKhach.exe
-D:\BaiTap1\MayKhach\MayKhach\bin\Debug\MayKhach.pdb
-D:\BaiTap1\MayKhach\MayKhach\obj\Debug\MayKhach.csprojResolveAssemblyReference.cache
-D:\BaiTap1\MayKhach\MayKhach\obj\Debug\MayKhach.Form1.resources
-D:\BaiTap1\MayKhach\MayKhach\obj\Debug\MayKhach.Properties.Resources.resources
-D:\BaiTap1\MayKhach\MayKhach\obj\Debug\MayKhach.csproj.GenerateResource.Cache
-D:\BaiTap1\MayKhach\MayKhach\obj\Debug\MayKhach.exe
-D:\BaiTap1\MayKhach\MayKhach\obj\Debug\MayKhach.pdb

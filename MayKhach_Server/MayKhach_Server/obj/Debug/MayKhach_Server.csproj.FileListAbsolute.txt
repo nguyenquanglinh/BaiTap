@@ -1,0 +1,6 @@
+D:\BaiTap1\MayKhach_Server\MayKhach_Server\bin\Debug\MayKhach_Server.exe.config
+D:\BaiTap1\MayKhach_Server\MayKhach_Server\bin\Debug\MayKhach_Server.exe
+D:\BaiTap1\MayKhach_Server\MayKhach_Server\bin\Debug\MayKhach_Server.pdb
+D:\BaiTap1\MayKhach_Server\MayKhach_Server\obj\Debug\MayKhach_Server.exe
+D:\BaiTap1\MayKhach_Server\MayKhach_Server\obj\Debug\MayKhach_Server.pdb
+D:\BaiTap1\MayKhach_Server\MayKhach_Server\obj\Debug\MayKhach_Server.csprojResolveAssemblyReference.cache

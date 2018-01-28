@@ -1,6 +1,0 @@
-D:\BaiTap1\Client\Client\bin\Debug\Client.exe.config
-D:\BaiTap1\Client\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
-D:\BaiTap1\Client\Client\bin\Debug\Client.exe
-D:\BaiTap1\Client\Client\bin\Debug\Client.pdb
-D:\BaiTap1\Client\Client\obj\Debug\Client.exe
-D:\BaiTap1\Client\Client\obj\Debug\Client.pdb

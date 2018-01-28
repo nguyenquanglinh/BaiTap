@@ -24,9 +24,11 @@ namespace Sever
         }
 
         IPEndPoint ip;
+
         Socket Sever;
         List<Socket> cacMayKhach;
-        const int Port = 230219;
+        const int Port = 2302;
+        string cauChat;
 
         void Connect()
         {
@@ -40,7 +42,7 @@ namespace Sever
                 {
                     while (true)
                     {
-                        Sever.Listen(1000);
+                        Sever.Listen(100);
                         var client = Sever.Accept();
                         cacMayKhach.Add(client);
                         Thread receive = new Thread(NhanTinVe);
@@ -73,7 +75,7 @@ namespace Sever
             else MessageBox.Show("tin rong");
         }
 
-        string cauChat;
+       
 
         void NhanTinVe(object obj)
         {
@@ -87,11 +89,9 @@ namespace Sever
                     var data = new byte[1024];
                     mayNhan.Receive(data);
                     cauChat = XuLyTinDen(data);
-                    if (cauChat != null)
-                    {
-                        ThemCauChat(cauChat);
-                        ChuyenTin();
-                    }
+
+                    ThemCauChat(cauChat);
+                    ChuyenTin();
                 }
             }
             catch
