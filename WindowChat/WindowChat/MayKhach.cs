@@ -52,15 +52,12 @@ namespace WindowChat
             try
             {
                 client.Connect(ip);
-                if (txtTenDangNhap.Text == "*")
-                {
-                    MessageBox.Show("không được đặt tên đặc biệt");
-                }
-                else client.Send(XuLyDuLieuDi(MaHoaChuoi("[" + txtTenDangNhap.Text + "]")));
+                if (KiemTraTenDangNhap())
+                    client.Send(XuLyDuLieuDi(MaHoaChuoi("[" + txtTenDangNhap.Text + "]")));
             }
             catch
             {
-                MessageBox.Show("không thể kết nối đến sever");
+                ThemCauChat("không thể kết nối đến sever");
                 return;
             }
             Thread listen = new Thread(NhanTinVe);
@@ -69,11 +66,32 @@ namespace WindowChat
 
         }
 
+        private bool KiemTraTenDangNhap()
+        {
+            var ten = txtTenDangNhap.Text.ToCharArray();
+            foreach (var item in ten)
+            {
+                if (item == ']' || item == '[' || item == '*')
+                {
+                    ThemCauChat("kết nối không thành công xem lại tên đăng nhập");
+                    KhungChat.BackColor = Color.Red;
+                    return false;
+                }
+            }
+            KhungChat.BackColor = Color.White;
+            return true;
+        }
+
+
+
+
         void DongKetNoi()
         {
             if (client == null)
                 return;
+            btnConnect.Enabled = true;
             client.Close();
+            ThemCauChat("đã tắt kết nối hiện tại có thể mở kết nối khác");
         }
 
         void GuiTinDi(string chuoi)
@@ -109,17 +127,14 @@ namespace WindowChat
                 if (cau.Length == 1)
                     ThemCauChat("không có người nhận tin " + txtNguoiNhan.Text);
                 else if (cau.Length == 2)
-                    ThemCauChat(cau[1] + " : không có kết nối");
+                    ThemCauChat(cau[1] + " : không có kết nối trên sever");
             }
             else if (cauChat == "[]")
                 ThemCauChat("kết nối thành công tới sever");
             else if (cauChat == "[[]")
                 ThemCauChat("sever không có ai");
             else if (cauChat == "[]]")
-            {
                 ThemCauChat("kết nối không thành công tên đã bị trùng trên sever");
-            }
-
             else ThemCauChat(cauChat);
         }
 
@@ -175,30 +190,58 @@ namespace WindowChat
         {
             if (client == null)
             {
-                MessageBox.Show("chưa kết nối tới sever");
+                ThemCauChat("chưa kết nối đến server");
+                KhungChat.BackColor = Color.Red;
                 return;
             }
-            if (txtNguoiNhan.Text == "tất cả mọi người")
-                GuiTinDi("[@/*" + "@]" + txtCauChat.Text);
-            else GuiTinDi("[@" + txtNguoiNhan.Text + "@]" + txtCauChat.Text);
+            else if (string.IsNullOrWhiteSpace(txtCauChat.Text))
+            {
+                KhungChat.BackColor = Color.Red;
+                ThemCauChat("không được tin nhắn trống");
+            }
+            else
+            {
+                if (txtNguoiNhan.Text == "tất cả mọi người" || string.IsNullOrWhiteSpace(txtNguoiNhan.Text))
+                    GuiTinDi("[@/*" + "@]" + txtCauChat.Text);
+                else GuiTinDi("[@" + txtNguoiNhan.Text + "@]" + txtCauChat.Text);
+                KhungChat.BackColor = Color.White;
+            }
         }
-
         private void btnConnect_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTenDangNhap.Text))
             {
-                MessageBox.Show("Nhập tên người dùng");
+                ThemCauChat("Nhập tên đăng nhập");
+                KhungChat.BackColor = Color.Red;
                 return;
             }
             MoKetNoi();
+            btnConnect.Enabled = false;
         }
 
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+            DongKetNoi();
+        }
+        string cauChat;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
 
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string fileName = ofd.FileName;
+
+                txtCauChat.Text = DocFile(fileName);
+            }
         }
 
-
-
+        string DocFile(string pathFile)
+        {
+            if (!File.Exists(pathFile))
+                throw new Exception("lỗi");
+            var allLines = File.ReadAllText(pathFile);
+            return allLines;
+        }
     }
 }

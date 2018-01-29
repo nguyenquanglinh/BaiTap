@@ -1,0 +1,11 @@
+D:\BaiTap1\ChatLan\ChatLan\Client\bin\Debug\Client.exe.config
+D:\BaiTap1\ChatLan\ChatLan\Client\bin\Debug\Client.exe
+D:\BaiTap1\ChatLan\ChatLan\Client\bin\Debug\Client.pdb
+D:\BaiTap1\ChatLan\ChatLan\Client\bin\Debug\ChatLib.dll
+D:\BaiTap1\ChatLan\ChatLan\Client\bin\Debug\ChatLib.pdb
+D:\BaiTap1\ChatLan\ChatLan\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+D:\BaiTap1\ChatLan\ChatLan\Client\obj\Debug\Client.Properties.Resources.resources
+D:\BaiTap1\ChatLan\ChatLan\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+D:\BaiTap1\ChatLan\ChatLan\Client\obj\Debug\Client.exe
+D:\BaiTap1\ChatLan\ChatLan\Client\obj\Debug\Client.pdb
+D:\BaiTap1\ChatLan\ChatLan\Client\obj\Debug\Client.formMain.resources

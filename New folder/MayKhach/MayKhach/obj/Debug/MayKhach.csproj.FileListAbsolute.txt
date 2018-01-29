@@ -1,0 +1,9 @@
+D:\BaiTap1\New folder\MayKhach\MayKhach\bin\Debug\MayKhach.exe.config
+D:\BaiTap1\New folder\MayKhach\MayKhach\bin\Debug\MayKhach.exe
+D:\BaiTap1\New folder\MayKhach\MayKhach\bin\Debug\MayKhach.pdb
+D:\BaiTap1\New folder\MayKhach\MayKhach\obj\Debug\MayKhach.MayKhach.resources
+D:\BaiTap1\New folder\MayKhach\MayKhach\obj\Debug\MayKhach.Properties.Resources.resources
+D:\BaiTap1\New folder\MayKhach\MayKhach\obj\Debug\MayKhach.csproj.GenerateResource.Cache
+D:\BaiTap1\New folder\MayKhach\MayKhach\obj\Debug\MayKhach.exe
+D:\BaiTap1\New folder\MayKhach\MayKhach\obj\Debug\MayKhach.pdb
+D:\BaiTap1\New folder\MayKhach\MayKhach\obj\Debug\MayKhach.MayKhachChat.resources

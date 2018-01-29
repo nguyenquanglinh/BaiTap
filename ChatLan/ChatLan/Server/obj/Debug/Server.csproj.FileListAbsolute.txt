@@ -1,0 +1,8 @@
+D:\BaiTap1\ChatLan\ChatLan\Server\bin\Debug\Server.exe.config
+D:\BaiTap1\ChatLan\ChatLan\Server\bin\Debug\Server.exe
+D:\BaiTap1\ChatLan\ChatLan\Server\bin\Debug\Server.pdb
+D:\BaiTap1\ChatLan\ChatLan\Server\bin\Debug\ChatLib.dll
+D:\BaiTap1\ChatLan\ChatLan\Server\bin\Debug\ChatLib.pdb
+D:\BaiTap1\ChatLan\ChatLan\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+D:\BaiTap1\ChatLan\ChatLan\Server\obj\Debug\Server.exe
+D:\BaiTap1\ChatLan\ChatLan\Server\obj\Debug\Server.pdb

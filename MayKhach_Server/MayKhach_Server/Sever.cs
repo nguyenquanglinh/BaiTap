@@ -17,18 +17,16 @@ namespace MayKhach_Server
         {
             Connect();
         }
+
         IPEndPoint ip;
 
         Socket Sever;
         List<MayKhach> dsMayKhach;
         const int Port = 2302;
-        List<List<MayKhach>> DsNhomChat;
-        int dem;
 
         void Connect()
         {
             dsMayKhach = new List<MayKhach>();
-            DsNhomChat = new List<List<MayKhach>>();
             ip = new IPEndPoint(IPAddress.Any, Port);
             Sever = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             Sever.Bind(ip);
@@ -40,7 +38,6 @@ namespace MayKhach_Server
                     {
                         Sever.Listen(100);
                         var client = Sever.Accept();
-                        dem = 0;
                         var mayKhach = new MayKhach(client);
 
 

@@ -1,0 +1,5 @@
+D:\BaiTap1\New folder\MayKhach\UserMayKhach\bin\Debug\UserMayKhach.dll
+D:\BaiTap1\New folder\MayKhach\UserMayKhach\bin\Debug\UserMayKhach.pdb
+D:\BaiTap1\New folder\MayKhach\UserMayKhach\obj\Debug\UserMayKhach.csprojResolveAssemblyReference.cache
+D:\BaiTap1\New folder\MayKhach\UserMayKhach\obj\Debug\UserMayKhach.dll
+D:\BaiTap1\New folder\MayKhach\UserMayKhach\obj\Debug\UserMayKhach.pdb

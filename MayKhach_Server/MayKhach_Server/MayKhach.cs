@@ -21,11 +21,6 @@ namespace MayKhach_Server
             set;
         }
 
-        public Socket NguoiNhan
-        {
-            get;
-            set;
-        }
         Socket socKet;
 
         public Socket SocKet
@@ -40,8 +35,6 @@ namespace MayKhach_Server
                     socKet = value;
             }
         }
-
-      
-
+         
     }
 }
