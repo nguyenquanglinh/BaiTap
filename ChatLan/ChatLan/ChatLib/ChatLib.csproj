@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageProcessorBase.cs" />
     <Compile Include="IMessageProcess.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="MessageModel\MessageBase.cs" />

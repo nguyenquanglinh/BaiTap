@@ -14,6 +14,9 @@ namespace ChatLib.MessageModel
     abstract public class MessageBase
     {
 
+        [NonSerialized]
+        public object Client;
+
         /// <summary>
         /// Xử lý message bởi processor
         /// </summary>
@@ -94,6 +97,165 @@ namespace ChatLib.MessageModel
         }
     }
 
+    /// <summary>
+    /// Gửi ti nhắn đến cho người khác 
+    /// </summary>
+    [Serializable]
+    public class SendMessage : MessageBase
+    {
+        /// <summary>
+        /// Người nhận 
+        /// </summary>
+        public string To { get; set; }
+        /// <summary>
+        /// Tin nhắn
+        /// </summary>
+        public string Message { get; set; }
+
+        public SendMessage(string name, string to, string message)
+            : base(name)
+        {
+            this.Message = message;
+            this.To = to;
+        }
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+    }
+
+    /// <summary>
+    /// Gửi ti nhắn đến cho người khác 
+    /// </summary>
+    [Serializable]
+    public class RecievedMessage : MessageBase
+    {
+        /// <summary>
+        /// Người nhận 
+        /// </summary>
+        public string From { get; set; }
+        /// <summary>
+        /// Tin nhắn
+        /// </summary>
+        public string Message { get; set; }
+
+        public RecievedMessage(string name, string message)
+            : base(name)
+        {
+            this.Message = message;
+        }
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+    }
+
+    /// <summary>
+    /// Gửi ti nhắn đến cho người khác 
+    /// </summary>
+    [Serializable]
+    public class SendMessageFailed : MessageBase
+    {
+        /// <summary>
+        /// Người nhận 
+        /// </summary>
+        public string To { get; set; }
+
+        /// <summary>
+        /// Tin nhắn
+        /// </summary>
+        public string Message { get; set; }
+
+        /// <summary>
+        /// Tin nhắn
+        /// </summary>
+        public string Reason { get; set; }
+
+
+        public SendMessageFailed(string name, string message, string reason)
+            : base(name)
+        {
+            this.Message = message;
+            this.Reason = reason;
+        }
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+    }
+
+
+
+    /// <summary>
+    /// Gửi ti nhắn đến cho người khác 
+    /// </summary>
+    [Serializable]
+    public class SendFile : MessageBase
+    {
+        /// <summary>
+        /// Người nhận 
+        /// </summary>
+        public string To { get; set; }
+
+        /// <summary>
+        /// Tin nhắn
+        /// </summary>
+        public byte[] ByteData { get; set; }
+        /// <summary>
+        /// Người nhận 
+        /// </summary>
+        public string FileName { get; set; }
+
+        public SendFile(string name, string to, byte[] data, string fileName)
+            : base(name)
+        {
+            this.FileName = fileName;
+            this.ByteData = data;
+            this.To = to;
+        }
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+    }
+
+    /// <summary>
+    /// Gửi ti nhắn đến cho người khác 
+    /// </summary>
+    [Serializable]
+    public class RecievedFile : MessageBase
+    {
+        /// <summary>
+        /// Người nhận 
+        /// </summary>
+        public string From { get; set; }
+        /// <summary>
+        /// Người nhận 
+        /// </summary>
+        public string To { get; set; }
+
+        /// <summary>
+        /// Người nhận 
+        /// </summary>
+        public string FileName { get; set; }
+
+        /// <summary>
+        /// Tin nhắn
+        /// </summary>
+        public byte[] ByteData { get; set; }
+
+        public RecievedFile(string name, string to, byte[] data, string fileName)
+            : base(name)
+        {
+            this.FileName = fileName;
+            this.To = to;
+            this.ByteData = data;
+        }
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+    }
 
 
 }
