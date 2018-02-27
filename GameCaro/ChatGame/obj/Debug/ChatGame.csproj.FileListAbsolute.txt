@@ -1,0 +1,6 @@
+D:\BaiTap1\GameCaro\ChatGame\bin\Debug\ChatGame.dll
+D:\BaiTap1\GameCaro\ChatGame\bin\Debug\ChatGame.pdb
+D:\BaiTap1\GameCaro\ChatGame\obj\Debug\ChatGame.KhungChat.resources
+D:\BaiTap1\GameCaro\ChatGame\obj\Debug\ChatGame.csproj.GenerateResource.Cache
+D:\BaiTap1\GameCaro\ChatGame\obj\Debug\ChatGame.dll
+D:\BaiTap1\GameCaro\ChatGame\obj\Debug\ChatGame.pdb

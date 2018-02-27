@@ -18,7 +18,6 @@ namespace ChessCaro
         const int steep = 10;
         const int timer = 1000;
         const int internall = 100;
-        SocKetManager socket;
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +29,6 @@ namespace ChessCaro
             prbTime.Maximum = timer;
             prbTime.Value = 0;
             timer1.Interval = internall;
-            socket = new SocKetManager();
         }
 
         //các ham su dụng trem form
@@ -109,54 +107,16 @@ namespace ChessCaro
 
         private void btnLan_Click(object sender, EventArgs e)
         {
-            socket.IP = txtIP.Text;
-            if (!socket.ConnecServer())
-            {
-                socket.CreatServer();
-                Thread listen = new Thread(() =>
-                {
-                    while (true)
-                    {
-                        Thread.Sleep(500);
-                        try
-                        {
-                            Listen();
-                            break;
-                        }
-                        catch
-                        {
-                        }
-                    }
-                });
-                listen.IsBackground = true;
-                listen.Start();
-            }
-            else
-            {
-                Thread listen = new Thread(() =>
-               {
-                   Listen();
-               });
-                listen.IsBackground = true;
-                listen.Start();
-                socket.Send("xin chao anh quang");
-            }
 
-        }
-
-        private void Listen()
-        {
-            string data = (string)socket.Receive();
-            MessageBox.Show(data);
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            txtIP.Text = socket.GetLocalIPV4(NetworkInterfaceType.Wireless80211);
-            if (string.IsNullOrEmpty(txtIP.Text))
-            {
-                txtIP.Text = socket.GetLocalIPV4(NetworkInterfaceType.Ethernet);
-            }
+        }
+
+        private void prbTime_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

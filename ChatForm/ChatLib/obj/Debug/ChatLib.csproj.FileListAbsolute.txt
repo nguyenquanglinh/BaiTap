@@ -1,0 +1,4 @@
+D:\BaiTap1\ChatForm\ChatLib\bin\Debug\ChatLib.dll
+D:\BaiTap1\ChatForm\ChatLib\bin\Debug\ChatLib.pdb
+D:\BaiTap1\ChatForm\ChatLib\obj\Debug\ChatLib.dll
+D:\BaiTap1\ChatForm\ChatLib\obj\Debug\ChatLib.pdb

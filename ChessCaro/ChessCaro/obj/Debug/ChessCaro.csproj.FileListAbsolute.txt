@@ -1,1 +1,11 @@
 D:\BaiTap1\ChessCaro\ChessCaro\bin\Debug\ChessCaro.exe.config
+D:\BaiTap1\ChessCaro\ChessCaro\bin\Debug\Resources\1.png
+D:\BaiTap1\ChessCaro\ChessCaro\bin\Debug\Resources\3.png
+D:\BaiTap1\ChessCaro\ChessCaro\bin\Debug\ChessCaro.exe
+D:\BaiTap1\ChessCaro\ChessCaro\bin\Debug\ChessCaro.pdb
+D:\BaiTap1\ChessCaro\ChessCaro\obj\Debug\ChessCaro.csprojResolveAssemblyReference.cache
+D:\BaiTap1\ChessCaro\ChessCaro\obj\Debug\ChessCaro.Form1.resources
+D:\BaiTap1\ChessCaro\ChessCaro\obj\Debug\ChessCaro.Properties.Resources.resources
+D:\BaiTap1\ChessCaro\ChessCaro\obj\Debug\ChessCaro.csproj.GenerateResource.Cache
+D:\BaiTap1\ChessCaro\ChessCaro\obj\Debug\ChessCaro.exe
+D:\BaiTap1\ChessCaro\ChessCaro\obj\Debug\ChessCaro.pdb

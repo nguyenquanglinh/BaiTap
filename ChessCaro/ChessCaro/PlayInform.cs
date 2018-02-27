@@ -24,6 +24,7 @@ namespace ChessCaro
             get { return personNew; }
             set { personNew = value; }
         }
+
         public PlayInform(Point point,int personNew)
         {
             Point = point;

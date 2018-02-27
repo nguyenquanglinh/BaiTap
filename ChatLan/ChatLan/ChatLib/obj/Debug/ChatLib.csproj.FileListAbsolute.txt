@@ -2,3 +2,4 @@ D:\BaiTap1\ChatLan\ChatLan\ChatLib\bin\Debug\ChatLib.dll
 D:\BaiTap1\ChatLan\ChatLan\ChatLib\bin\Debug\ChatLib.pdb
 D:\BaiTap1\ChatLan\ChatLan\ChatLib\obj\Debug\ChatLib.dll
 D:\BaiTap1\ChatLan\ChatLan\ChatLib\obj\Debug\ChatLib.pdb
+D:\BaiTap1\ChatLan\ChatLan\ChatLib\obj\Debug\ChatLib.csprojResolveAssemblyReference.cache

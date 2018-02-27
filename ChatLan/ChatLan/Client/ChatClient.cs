@@ -55,11 +55,6 @@ namespace Client
 
         }
 
-        private void NotifyNewMessage(MessageBase message)
-        {
-            if (MessageRecieved != null)
-                MessageRecieved(this, new MessageRecivedEventArgs { Message = message });
-        }
 
         public void Send(MessageBase message)
         {

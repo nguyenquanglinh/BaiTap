@@ -1,0 +1,10 @@
+D:\BaiTap1\GameCaro\ChatCaro\bin\Debug\ChatCaro.exe.config
+D:\BaiTap1\GameCaro\ChatCaro\bin\Debug\ChatCaro.exe
+D:\BaiTap1\GameCaro\ChatCaro\bin\Debug\ChatCaro.pdb
+D:\BaiTap1\GameCaro\ChatCaro\obj\Debug\ChatCaro.ManagerPlayer.resources
+D:\BaiTap1\GameCaro\ChatCaro\obj\Debug\ChatCaro.Form1.resources
+D:\BaiTap1\GameCaro\ChatCaro\obj\Debug\ChatCaro.KhungChat.resources
+D:\BaiTap1\GameCaro\ChatCaro\obj\Debug\ChatCaro.Properties.Resources.resources
+D:\BaiTap1\GameCaro\ChatCaro\obj\Debug\ChatCaro.csproj.GenerateResource.Cache
+D:\BaiTap1\GameCaro\ChatCaro\obj\Debug\ChatCaro.exe
+D:\BaiTap1\GameCaro\ChatCaro\obj\Debug\ChatCaro.pdb

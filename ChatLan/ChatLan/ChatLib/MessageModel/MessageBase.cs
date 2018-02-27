@@ -34,7 +34,6 @@ namespace ChatLib.MessageModel
             this.Sender = name;
         }
     }
-
     /// <summary>
     /// Gói tin báo đã connect kèm theo tên
     /// </summary>
@@ -44,7 +43,6 @@ namespace ChatLib.MessageModel
         public ConnectMessageRequest(string name)
             : base(name)
         {
-
         }
 
         public override void Accept(IMessageProcess processor)
@@ -53,9 +51,8 @@ namespace ChatLib.MessageModel
         }
 
 
+       
     }
-
-
     /// <summary>
     /// Gói tin báo connect kèm theo tên
     /// </summary>
@@ -73,8 +70,6 @@ namespace ChatLib.MessageModel
         }
 
     }
-
-
     /// <summary>
     /// Gói tin báo đã connect lỗi 
     /// </summary>
@@ -96,7 +91,6 @@ namespace ChatLib.MessageModel
             processor.Process(this);
         }
     }
-
     /// <summary>
     /// Gửi ti nhắn đến cho người khác 
     /// </summary>
@@ -123,7 +117,6 @@ namespace ChatLib.MessageModel
             processor.Process(this);
         }
     }
-
     /// <summary>
     /// Gửi ti nhắn đến cho người khác 
     /// </summary>
@@ -149,7 +142,6 @@ namespace ChatLib.MessageModel
             processor.Process(this);
         }
     }
-
     /// <summary>
     /// Gửi ti nhắn đến cho người khác 
     /// </summary>
@@ -183,9 +175,6 @@ namespace ChatLib.MessageModel
             processor.Process(this);
         }
     }
-
-
-
     /// <summary>
     /// Gửi ti nhắn đến cho người khác 
     /// </summary>
@@ -218,7 +207,6 @@ namespace ChatLib.MessageModel
             processor.Process(this);
         }
     }
-
     /// <summary>
     /// Gửi ti nhắn đến cho người khác 
     /// </summary>
@@ -256,6 +244,4 @@ namespace ChatLib.MessageModel
             processor.Process(this);
         }
     }
-
-
 }

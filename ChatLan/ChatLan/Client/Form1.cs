@@ -44,25 +44,27 @@ namespace Client
         class GuiProcess : MessageProcessorBase
         {
             private formMain form;
+            //1 hàm tạo
             public GuiProcess(formMain form)
             {
                 this.form = form;
             }
+            //2 tên máy khách
             public override void Process(ChatLib.MessageModel.ConnectMessageSuccess message)
             {
                 this.form.Text = message.Sender;
             }
-
+            //3 gửi tin nhắn thất bại
             public override void Process(ChatLib.MessageModel.ConnectMessageFailed message)
             {
                 this.form.richTextBox1.AppendText(message.Reason + "\n");
             }
-
+            //4 nhận được tin nhắn
             public override void Process(RecievedMessage message)
             {
                 this.form.richTextBox1.AppendText(string.Format("{0}: {1} \n", message.From, message.Message));
             }
-
+            //5 nhận được file
             public override void Process(RecievedFile recievedFile)
             {
                 this.form.richTextBox1.AppendText("Recieve from " + recievedFile.From + " file name:" + recievedFile.FileName);

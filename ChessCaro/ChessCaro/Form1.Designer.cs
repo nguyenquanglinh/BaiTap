@@ -97,6 +97,7 @@
             this.prbTime.Name = "prbTime";
             this.prbTime.Size = new System.Drawing.Size(100, 23);
             this.prbTime.TabIndex = 1;
+            this.prbTime.Click += new System.EventHandler(this.prbTime_Click);
             // 
             // txtPlayer
             // 
@@ -116,6 +117,7 @@
             // pcbAvatar
             // 
             this.pcbAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pcbAvatar.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pcbAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pcbAvatar.Image = global::ChessCaro.Properties.Resources.ad;
             this.pcbAvatar.Location = new System.Drawing.Point(3, -1);
