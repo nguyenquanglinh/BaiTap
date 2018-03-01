@@ -44,14 +44,8 @@
             this.btnHienTai = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CbbNguoiChoi = new System.Windows.Forms.ComboBox();
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtMester = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chessBoardCaro1 = new ChatCaro.ChessBoardCaro();
-            this.khungChat1 = new ChatCaro.KhungChat();
             this.menuStart.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grbThongTin.SuspendLayout();
@@ -110,13 +104,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.khungChat1);
             this.groupBox1.Controls.Add(this.grbThongTin);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.CbbNguoiChoi);
-            this.groupBox1.Controls.Add(this.btnConnect);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtMester);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox1.Location = new System.Drawing.Point(508, 24);
             this.groupBox1.Name = "groupBox1";
@@ -134,7 +122,7 @@
             this.grbThongTin.Controls.Add(this.btnHienTai);
             this.grbThongTin.Controls.Add(this.label3);
             this.grbThongTin.Controls.Add(this.label4);
-            this.grbThongTin.Location = new System.Drawing.Point(0, 122);
+            this.grbThongTin.Location = new System.Drawing.Point(1, 28);
             this.grbThongTin.Name = "grbThongTin";
             this.grbThongTin.Size = new System.Drawing.Size(206, 115);
             this.grbThongTin.TabIndex = 14;
@@ -202,51 +190,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Hiện tại :";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Tên ban chơi :";
-            // 
-            // CbbNguoiChoi
-            // 
-            this.CbbNguoiChoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbbNguoiChoi.FormattingEnabled = true;
-            this.CbbNguoiChoi.Items.AddRange(new object[] {
-            "*"});
-            this.CbbNguoiChoi.Location = new System.Drawing.Point(100, 46);
-            this.CbbNguoiChoi.Name = "CbbNguoiChoi";
-            this.CbbNguoiChoi.Size = new System.Drawing.Size(100, 21);
-            this.CbbNguoiChoi.TabIndex = 7;
-            // 
-            // btnConnect
-            // 
-            this.btnConnect.Location = new System.Drawing.Point(125, 72);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 23);
-            this.btnConnect.TabIndex = 6;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Tên người chơi :";
-            // 
-            // txtMester
-            // 
-            this.txtMester.Location = new System.Drawing.Point(100, 19);
-            this.txtMester.Name = "txtMester";
-            this.txtMester.Size = new System.Drawing.Size(100, 20);
-            this.txtMester.TabIndex = 2;
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -259,13 +202,6 @@
             this.chessBoardCaro1.Name = "chessBoardCaro1";
             this.chessBoardCaro1.Size = new System.Drawing.Size(714, 433);
             this.chessBoardCaro1.TabIndex = 12;
-            // 
-            // khungChat1
-            // 
-            this.khungChat1.Location = new System.Drawing.Point(0, 243);
-            this.khungChat1.Name = "khungChat1";
-            this.khungChat1.Size = new System.Drawing.Size(207, 192);
-            this.khungChat1.TabIndex = 15;
             // 
             // Form1
             // 
@@ -281,7 +217,6 @@
             this.menuStart.ResumeLayout(false);
             this.menuStart.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.grbThongTin.ResumeLayout(false);
             this.grbThongTin.PerformLayout();
             this.ResumeLayout(false);
@@ -298,11 +233,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private ChessBoardCaro chessBoardCaro1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox CbbNguoiChoi;
-        private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtMester;
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
         private System.Windows.Forms.ProgressBar prbTime;
         private System.Windows.Forms.Timer timer1;
@@ -313,7 +243,6 @@
         private System.Windows.Forms.Button btnHienTai;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private KhungChat khungChat1;
 
     }
 }

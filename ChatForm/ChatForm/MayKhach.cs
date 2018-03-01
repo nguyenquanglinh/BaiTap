@@ -31,11 +31,6 @@ namespace ChatForm
             ThemCauChat(txtMessage.Text);
         }
 
-
-
-
-
-
         #region
         class SendProcess : MessagerProcessorBase
         {
@@ -117,6 +112,7 @@ namespace ChatForm
             }
             return data;
         }
+
         private void ThemCauChat(string cauChat)
         {
             this.KhungChat.AppendText(cauChat + "\n");
@@ -126,6 +122,26 @@ namespace ChatForm
         private void btnConnect_Click(object sender, EventArgs e)
         {
             client.Connect(txtUserName.Text);
+        }
+
+        private void txtMessage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtReceive_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KhungChat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

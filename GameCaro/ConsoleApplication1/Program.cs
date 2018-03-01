@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChatCaro
+namespace ConsoleApplication1
 {
-    public class Chat
+    class Program
     {
+        static void Main(string[] args)
+        {
+        }
     }
 }

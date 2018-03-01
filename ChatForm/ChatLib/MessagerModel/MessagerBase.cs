@@ -46,6 +46,7 @@ namespace ChatLib.MessageModel
 
         }
     }
+
     /// <summary>
     /// đối tượng kết nối tin nhắn thành công
     /// </summary>
@@ -100,6 +101,48 @@ namespace ChatLib.MessageModel
         public string Message { get; set; }
 
     }
+    /// <summary>
+    /// gửi tọa độ đi
+    /// </summary>
+    [Serializable]
+    public class SendLocationPlayerClick : MessageBaser
+    {
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+        public SendLocationPlayerClick(string name, int x, int y)
+            : base(name)
+        {
+            this.X = x;
+            this.Y = y;
+        }
+
+        public int X { get; set; }
+
+        public int Y { get; set; }
+    }
+
+    [Serializable]
+    public class RecieveLoactionPlayerClick : MessageBaser
+    {
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+        public RecieveLoactionPlayerClick(string name,int x,int y):base(name)
+        {
+            this.X = x;
+            this.Y = y;
+        }
+
+        public int X { get; set; }
+
+        public int Y { get; set; }
+    }
+
+
+
     /// <summary>
     /// nhận tin nhắn
     /// </summary>

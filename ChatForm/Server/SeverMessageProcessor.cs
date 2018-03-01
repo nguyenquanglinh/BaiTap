@@ -80,6 +80,9 @@ namespace Server
                 this.ListReiceveMassager.Add(new RecievedFile(clientName, nguoiNhan, message.FileName, message.ByteData) { Client = clientManager.Get(nguoiNhan) });
             }
         }
+
+
+        #region
         /// <summary>
         /// chưa làm được
         /// </summary>
@@ -103,7 +106,7 @@ namespace Server
                 this.ListReiceveMassager.Add(new ReceiFileBig(clientName, message.FileName, message.SendTo, message.DaTaBig) { Client = clientManager.Get(nguoiNhan) });
             }
         }
-
+        #endregion
     }
 
 }

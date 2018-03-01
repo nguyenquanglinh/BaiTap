@@ -8,41 +8,28 @@ namespace Chatlib
 {
     public interface IMessageProcess
     {
-        //yêu cầu kết nối đên server thành công
-        void Process(MessageModel.ConnectMessageRequest connectMessageRequest);
+        void Process(MessagerModel.ConnectMessageRequest connectMessageRequest);
 
-        //kết nối thành công tới server
-        void Process(MessageModel.ConnectMessageSuccess connectMessageSuccess);
+        void Process(MessagerModel.ConnectMessageSuccess connectMessageSuccess);
 
-        //gửi tin nhắn lỗi
-        void Process(MessageModel.ConnecMessageFaile connecMessageFaile);
+        void Process(MessagerModel.ConnecMessageFaile connecMessageFaile);
 
-        //gửi tin nhắn
-        void Process(MessageModel.SendMessage sendMessage);
+        void Process(MessagerModel.SendMessage sendMessage);
 
-        //nhận tin nhắn
-        void Process(MessageModel.RecievedMessage recievedMessage);
+        void Process(MessagerModel.SendLocationPlayerClick sendLocationPlayerClick);
 
-        //gửi tin nhắn lỗi
-        void Process(MessageModel.SendMessageFalse sendMessageFile);
+        void Process(MessagerModel.RecieveLoactionPlayerClick recieveLoactionPlayerClick);
 
-        //gửi tin nhắn
-        void Process(MessageModel.SenFile senFile);
+        void Process(MessagerModel.RecievedMessage recievedMessage);
 
-        //nhận tin nhắn
-        void Process(MessageModel.RecievedFile recievedFile);
-        #region
-        /// <summary>
-        /// chưa làm được 
-        /// </summary>
-        /// <param name="senFileBig"></param>
-        void Process(MessageModel.SendFileBig senFileBig);
+        void Process(MessagerModel.ReceiFileBig receiFileBig);
 
-        void Process(MessageModel.ReceiFileBig receiFileBig);
-        #endregion
-        void Process(MessageModel.SendLocationPlayerClick sendLocationPlayerClick);
+        void Process(MessagerModel.SendMessageFalse sendMessageFalse);
 
-        void Process(MessageModel.RecieveLoactionPlayerClick recieveLoactionPlayerClick);
+        void Process(MessagerModel.SendFileBig sendFileBig);
 
+        void Process(MessagerModel.SenFile senFile);
+
+        void Process(MessagerModel.RecievedFile recievedFile);
     }
 }

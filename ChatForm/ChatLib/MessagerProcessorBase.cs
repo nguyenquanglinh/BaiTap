@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChatLib
 {
-    public class MessagerProcessorBase:IMessageProcess
+    public class MessagerProcessorBase : IMessageProcess
     {
         virtual public void Process(MessageModel.ConnectMessageSuccess message) { }
 
@@ -14,7 +14,7 @@ namespace ChatLib
 
         virtual public void Process(MessageModel.ConnectMessageRequest message) { }
 
-        virtual public void Process(MessageModel.SendMessage message){}
+        virtual public void Process(MessageModel.SendMessage message) { }
 
         virtual public void Process(MessageModel.RecievedMessage message) { }
 
@@ -31,5 +31,14 @@ namespace ChatLib
         /// <param name="message"></param>
         virtual public void Process(MessageModel.ReceiFileBig message) { }
 
+
+
+        virtual public void Process(MessageModel.SendLocationPlayerClick sendLocationPlayerClick)
+        {
+        }
+
+        virtual public void Process(MessageModel.RecieveLoactionPlayerClick recieveLoactionPlayerClick)
+        {
+        }
     }
 }

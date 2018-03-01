@@ -31,6 +31,7 @@ namespace ChatLib
 
         //nhận tin nhắn
         void Process(MessageModel.RecievedFile recievedFile);
+        #region
         /// <summary>
         /// chưa làm được 
         /// </summary>
@@ -38,5 +39,9 @@ namespace ChatLib
         void Process(MessageModel.SendFileBig senFileBig);
 
         void Process(MessageModel.ReceiFileBig receiFileBig);
+        #endregion
+        void Process(MessageModel.SendLocationPlayerClick sendLocationPlayerClick);
+
+        void Process(MessageModel.RecieveLoactionPlayerClick recieveLoactionPlayerClick);
     }
 }

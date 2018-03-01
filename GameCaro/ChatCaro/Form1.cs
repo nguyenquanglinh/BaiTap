@@ -27,6 +27,7 @@ namespace ChatCaro
         {
             timer1.Stop();
             chessBoardCaro1.EndGame();
+
         }
         private void NewGame()
         {
@@ -76,6 +77,7 @@ namespace ChatCaro
             if (prbTime.Value >= timer)
             {
                 EndGame();
+                MessageBox.Show("winer is : " + chessBoardCaro1.NamePlayerCurrent);
             }
         }
 
@@ -88,6 +90,10 @@ namespace ChatCaro
         {
 
         }
+
+
+
+
     }
 
 

@@ -53,6 +53,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(100, 20);
             this.txtUserName.TabIndex = 2;
+            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // KhungChat
             // 
@@ -61,6 +62,7 @@
             this.KhungChat.Size = new System.Drawing.Size(100, 96);
             this.KhungChat.TabIndex = 3;
             this.KhungChat.Text = "";
+            this.KhungChat.TextChanged += new System.EventHandler(this.KhungChat_TextChanged);
             // 
             // btnSend
             // 
@@ -80,6 +82,7 @@
             this.txtReceive.TabIndex = 5;
             this.txtReceive.Text = "*";
             this.txtReceive.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtReceive.TextChanged += new System.EventHandler(this.txtReceive_TextChanged);
             // 
             // txtMessage
             // 
@@ -87,6 +90,7 @@
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.Size = new System.Drawing.Size(100, 20);
             this.txtMessage.TabIndex = 6;
+            this.txtMessage.TextChanged += new System.EventHandler(this.txtMessage_TextChanged);
             // 
             // btnSendFile
             // 
