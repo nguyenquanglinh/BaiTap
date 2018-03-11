@@ -37,8 +37,9 @@ namespace Server
         /// <returns></returns>
         public byte[] Receive()
         {
-            var data = new byte[1024];
+            var data = new byte[1024*5];
             Socket.Receive(data);
+
             return data;
         }
         /// <summary>

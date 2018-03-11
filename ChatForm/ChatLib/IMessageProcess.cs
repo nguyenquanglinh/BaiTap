@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChatLib
 {
+    /// <summary>
+    /// giao diện cho các lớp xử lý messagebase
+    /// </summary>
     public interface IMessageProcess
     {
         //yêu cầu kết nối đên server thành công
@@ -27,21 +30,24 @@ namespace ChatLib
         void Process(MessageModel.SendMessageFalse sendMessageFile);
 
        //gửi tin nhắn
-        void Process(MessageModel.SenFile senFile);
+        void Process(MessageModel.SendFile senFile);
 
         //nhận tin nhắn
         void Process(MessageModel.RecievedFile recievedFile);
-        #region
-        /// <summary>
-        /// chưa làm được 
-        /// </summary>
-        /// <param name="senFileBig"></param>
-        void Process(MessageModel.SendFileBig senFileBig);
 
-        void Process(MessageModel.ReceiFileBig receiFileBig);
-        #endregion
-        void Process(MessageModel.SendLocationPlayerClick sendLocationPlayerClick);
+        //gửi lời mời chơi game đến 1 người
+        void Process(MessageModel.SendInvation sendInvation);
+        //trả lời mời chơi game
+        void Process(MessageModel.ReciveInvation reciveDecLinedInvation);
+        //tìm bạn chơi
+        void Process(MessageModel.SendFindPlayer sendFindPlayer);
+        //trả lại ds người chơi
+        void Process(MessageModel.ReceiFindPlayer receiFindPlayer);
 
-        void Process(MessageModel.RecieveLoactionPlayerClick recieveLoactionPlayerClick);
+        void Process(MessageModel.SendFileBig sendFileBig);
+
+        void Process(MessageModel.SendClientClose clientClose);
+
+        void Process(MessageModel.ReceiveClientClose receiClientClose);
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChatLib
 {
-    public class MessagerProcessorBase : IMessageProcess
+    public abstract class MessagerProcessorBase : IMessageProcess
     {
         virtual public void Process(MessageModel.ConnectMessageSuccess message) { }
 
@@ -22,23 +22,45 @@ namespace ChatLib
 
         virtual public void Process(MessageModel.SendMessageFalse message) { }
 
-        virtual public void Process(MessageModel.SenFile message) { }
-
-        virtual public void Process(MessageModel.SendFileBig message) { }
-        /// <summary>
-        /// chưa làm được
-        /// </summary>
-        /// <param name="message"></param>
-        virtual public void Process(MessageModel.ReceiFileBig message) { }
+        virtual public void Process(MessageModel.SendFile message) { }
 
 
-
-        virtual public void Process(MessageModel.SendLocationPlayerClick sendLocationPlayerClick)
+        //tìm người chơi
+        virtual public void Process(MessageModel.SendFindPlayer sendFindPlayer)
+        {
+        }
+        //đã tìm thấy người chơi
+        virtual public void Process(MessageModel.ReceiFindPlayer receiFindPlayer)
         {
         }
 
-        virtual public void Process(MessageModel.RecieveLoactionPlayerClick recieveLoactionPlayerClick)
+        //gửi lời mời đến 1 người
+        virtual public void Process(MessageModel.SendInvation message)
         {
+
+        }
+
+        //quyết định của người chơi
+        virtual public void Process(MessageModel.ReciveInvation message)
+        {
+
+        }
+
+
+
+        virtual public void Process(MessageModel.SendFileBig sendFileBig)
+        {
+
+        }
+
+        virtual public void Process(MessageModel.SendClientClose clientClose)
+        {
+
+        }
+
+        virtual public void Process(MessageModel.ReceiveClientClose receiClientClose)
+        {
+
         }
     }
 }

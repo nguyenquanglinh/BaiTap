@@ -8,7 +8,7 @@ namespace Server
 {
     public class ClientManager
     {
-        static ClientManager instance=new ClientManager();
+        static ClientManager instance = new ClientManager();
 
         List<MayKhach> dsMayKhach = new List<MayKhach>();
         /// <summary>
@@ -25,6 +25,8 @@ namespace Server
         {
             return dsMayKhach.Any(x => x.TenMay == name);
         }
+
+
         /// <summary>
         /// thêm 1 máy khách khác vào danh sách máy khách
         /// </summary>
@@ -51,11 +53,16 @@ namespace Server
         {
             return dsMayKhach.First(x => x.TenMay == name);
         }
+
+        public string[] GetUserPlayerNew(string name)
+        {
+            return dsMayKhach.Select(x => x.TenMay).ToArray();
+        }
         /// <summary>
         /// lấy tất cả danh sách máy khách
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<MayKhach>GetAll()
+        public IEnumerable<MayKhach> GetAll()
         {
             return dsMayKhach;
         }

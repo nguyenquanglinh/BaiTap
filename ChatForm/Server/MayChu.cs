@@ -1,4 +1,5 @@
 ﻿using ChatLib;
+using ChatLib.MessageModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +56,7 @@ namespace Server
         private void NhanTinNhan(object obj)
         {
             var client = (MayKhach)obj;
-            
+
             try
             {
                 while (true)
@@ -66,22 +67,23 @@ namespace Server
                     messager.Accept(processor);
                     foreach (var item in processor.ListReiceveMassager)
                     {
-                        if (item.Client != null && client != item.Client)
-                        {
-                            var socketClient = item.Client as MayKhach;
-                            socketClient.Send(TryConvertObject.SwithToBinnary(item));
-                        }
-                        else if (client.TenMay == null)
-                            client.Send(TryConvertObject.SwithToBinnary(item));
+                        if (item.Client != null)
+                            SendToClient(item.Client as MayKhach, item);
+                        else
+                            SendToClient(client, item);
                     }
                 }
             }
             catch (Exception)
             {
 
-                Console.WriteLine("exception : client close "+client.TenMay);
+                Console.WriteLine("exception : client close " + client.TenMay);
                 clientManager.Remove(client);
             }
+        }
+        private void SendToClient(MayKhach client, MessageBase message)
+        {
+            client.Send(TryConvertObject.SwithToBinnary(message));
         }
     }
 }

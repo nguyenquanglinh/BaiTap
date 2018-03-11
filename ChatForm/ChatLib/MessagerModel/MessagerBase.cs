@@ -7,51 +7,122 @@ using System.Threading.Tasks;
 namespace ChatLib.MessageModel
 {
     [Serializable]
-    abstract public class MessageBaser
+    abstract public class MessageBase  // class 
     {
         [NonSerialized]
-        public object Client;
+        public object Client; // member 
         /// <summary>
         /// xử lý tin nhắn được chấp nhận
+        /// 
         /// </summary>
         /// <param name="processor"></param>
-        public abstract void Accept(IMessageProcess processor);
+        public abstract void Accept(IMessageProcess processor); // abstract method 
         /// <summary>
         /// Tên người gửi
         /// </summary>
-        public string NameSender { get; set; }
+        public string NameSender { get; set; }  // properties 
         /// <summary>
         /// hàm tạo đối tượng tin nhắn
         /// </summary>
         /// <param name="name"></param>
-        public MessageBaser(string name)
+        public MessageBase(string name) // constructor
         {
             this.NameSender = name;
         }
+    }
+
+    [Serializable]
+    public class SendClientClose : MessageBase
+    {
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+        public SendClientClose(string name, string from)
+            : base(name)
+        {
+            this.From = from;
+        }
+
+        public string From { get; set; }
+    }
+    [Serializable]
+    public class ReceiveClientClose : MessageBase
+    {
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+        public ReceiveClientClose(string name, string from)
+            : base(name)
+        {
+            this.From = from;
+        }
+
+        public string From { get; set; }
     }
 
     /// <summary>
     /// đối tượng kết nối server
     /// </summary>
     [Serializable]
-    public class ConnectMessageRequest : MessageBaser
+    public class ConnectMessageRequest : MessageBase
     {
         public override void Accept(IMessageProcess processor)
         {
             processor.Process(this);
         }
+
         public ConnectMessageRequest(string name)
             : base(name)
         {
 
         }
     }
+    //gửi lời mời
+    [Serializable]
+    public class SendInvation : MessageBase
+    {
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+        public SendInvation(string name, string from)
+            : base(name)
+        {
+            this.From = from;
+        }
+
+        public string From { get; set; }
+    }
+
+    //không đồng ý chơi
+    [Serializable]
+    public class ReciveInvation : MessageBase
+    {
+        public override void Accept(IMessageProcess processor)
+        {
+            processor.Process(this);
+        }
+        public ReciveInvation(string name, string from, bool isInvation)
+            : base(name)
+        {
+            this.IsInvation = isInvation;
+
+            this.From = from;
+        }
+
+        public string From { get; set; }
+
+        public bool IsInvation { get; set; }
+    }
+    //đồng ý chơi
 
     /// <summary>
     /// đối tượng kết nối tin nhắn thành công
     /// </summary>
     [Serializable]
-    public class ConnectMessageSuccess : MessageBaser
+    public class ConnectMessageSuccess : MessageBase
     {
         public override void Accept(IMessageProcess processor)
         {
@@ -68,7 +139,7 @@ namespace ChatLib.MessageModel
     /// đối tượng kết nối tin nhắn thất bại
     /// </summary>
     [Serializable]
-    public class ConnecMessageFaile : MessageBaser
+    public class ConnecMessageFaile : MessageBase
     {
         public override void Accept(IMessageProcess processor)
         {
@@ -85,115 +156,87 @@ namespace ChatLib.MessageModel
     /// gửi tin nhắn
     /// </summary>
     [Serializable]
-    public class SendMessage : MessageBaser
+    public class SendMessage : MessageBase
     {
         public override void Accept(IMessageProcess processor)
         {
             processor.Process(this);
         }
-        public SendMessage(string name, string sendTo, string message)
+        public SendMessage(string name, string sendTo, string message, bool isLoaction)
             : base(name)
         {
+
             this.Message = message;
             this.SendTo = sendTo;
+            this.IsLocation = isLoaction;
         }
         public string SendTo { get; set; }
         public string Message { get; set; }
+        public bool IsLocation { get; set; }
 
     }
-    /// <summary>
-    /// gửi tọa độ đi
-    /// </summary>
     [Serializable]
-    public class SendLocationPlayerClick : MessageBaser
+    public class SendFindPlayer : MessageBase
     {
         public override void Accept(IMessageProcess processor)
         {
             processor.Process(this);
         }
-        public SendLocationPlayerClick(string name, int x, int y)
+        public SendFindPlayer(string name)
             : base(name)
         {
-            this.X = x;
-            this.Y = y;
+
         }
-
-        public int X { get; set; }
-
-        public int Y { get; set; }
     }
-
     [Serializable]
-    public class RecieveLoactionPlayerClick : MessageBaser
+    public class ReceiFindPlayer : MessageBase
     {
         public override void Accept(IMessageProcess processor)
         {
             processor.Process(this);
         }
-        public RecieveLoactionPlayerClick(string name,int x,int y):base(name)
+        public ReceiFindPlayer(string name, string[] userNamePlayer)
+            : base(name)
         {
-            this.X = x;
-            this.Y = y;
+            this.UserNamePlayer = userNamePlayer;
         }
-
-        public int X { get; set; }
-
-        public int Y { get; set; }
+         
+        public string[] UserNamePlayer { get; set; }
     }
-
 
 
     /// <summary>
     /// nhận tin nhắn
     /// </summary>
     [Serializable]
-    public class RecievedMessage : MessageBaser
+    public class RecievedMessage : MessageBase
     {
         public override void Accept(IMessageProcess processor)
         {
             processor.Process(this);
         }
-        public string Form { get; set; }
 
-        public RecievedMessage(string name, string mesage)
+        public RecievedMessage(string name, string mesage, bool isLocation)
             : base(name)
         {
             this.Message = mesage;
+            this.isLoaction = isLocation;
         }
 
         public string Message { get; set; }
 
+        public string From { get; set; }
+
+        public bool isLoaction { get; set; }
     }
 
 
-    [Serializable]
-    public class ReceiFileBig : MessageBaser
-    {
-        public override void Accept(IMessageProcess processor)
-        {
-            processor.Process(this);
-        }
-        public ReceiFileBig(string name, string fileName, string sendTo, List<byte[]> data)
-            : base(name)
-        {
-            this.FileName = fileName;
-            this.SendTo = sendTo;
-            this.BigData = data;
-        }
-
-
-        public string FileName { get; set; }
-
-        public List<byte[]> BigData { get; set; }
-
-        public string SendTo { get; set; }
-    }
 
     /// <summary>
     /// gửi tin nhắn lỗi
     /// </summary>
     [Serializable]
-    public class SendMessageFalse : MessageBaser
+    public class SendMessageFalse : MessageBase
     {
         public override void Accept(IMessageProcess processor)
         {
@@ -212,49 +255,38 @@ namespace ChatLib.MessageModel
 
     }
     [Serializable]
-    public class SendFileBig : MessageBaser
+    public class SendFileBig : MessageBase
     {
-        public SendFileBig(string name, string sendTo, string fileName, int soFile)
-            : base(name)
-        {
-            this.SoFile = soFile;
-            this.SendTo = sendTo;
-            this.FileName = fileName;
-        }
-
-        public SendFileBig(string stt, byte[] data)
-            : base(stt)
-        {
-            DaTaBig.Add(data);
-        }
-
         public override void Accept(IMessageProcess processor)
         {
             processor.Process(this);
         }
+        public SendFileBig(string name, string from, string fileName, byte[] data)
+            : base(name)
+        {
+            this.From = from;
+            this.FileName = fileName;
+            this.Data = data;
+        }
 
-        public List<byte[]> DaTaBig = new List<byte[]>();
-
-        public string SendTo { get; set; }
+        public string From { get; set; }
 
         public string FileName { get; set; }
 
-        public int SoFile { get; set; }
-
-        public byte[] DaTa { get; set; }
+        public byte[] Data { get; set; }
     }
 
     /// <summary>
     /// gửi tin nhắn
     /// </summary>
     [Serializable]
-    public class SenFile : MessageBaser
+    public class SendFile : MessageBase
     {
         public override void Accept(IMessageProcess processor)
         {
             processor.Process(this);
         }
-        public SenFile(string name, byte[] data, string sendTo, string fileName)
+        public SendFile(string name, byte[] data, string sendTo, string fileName)
             : base(name)
         {
             this.FileName = fileName;
@@ -272,7 +304,7 @@ namespace ChatLib.MessageModel
     /// nhận tin nhắn
     /// </summary>i
     [Serializable]
-    public class RecievedFile : MessageBaser
+    public class RecievedFile : MessageBase
     {
         public override void Accept(IMessageProcess processor)
         {

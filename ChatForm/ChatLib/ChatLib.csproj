@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectMessageRequest.cs" />
     <Compile Include="IMessageProcess.cs" />
     <Compile Include="MessagerModel\MessagerBase.cs" />
     <Compile Include="MessagerProcessorBase.cs" />

@@ -12,13 +12,21 @@ namespace ChatForm
 {
     public class ClientChat
     {
+        public Socket Client
+        {
+            get
+            {
+                return client;
+            }
+        }
+
         Socket client;
 
         public List<IMessageProcess> Processor { get; set; }
 
         public int Port { get; set; }
 
-        public int port { get; set; }
+      
 
         public ClientChat(int Port)
         {
@@ -50,22 +58,24 @@ namespace ChatForm
             {
                 while (true)
                 {
-                    var data = new byte[1024];
+                    var data = new byte[1024*5];
                     client.Receive(data);
                     var mesage = TryConvertObject.SwithToMessager(data);
+                      
                     foreach (var item in Processor)
                     {
                         mesage.Accept(item);
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine("lỗi " + ex);
                 client.Close();
             }
         }
 
-        public void Send(MessageBaser message)
+        public void Send(MessageBase message)
         {
             var data = TryConvertObject.SwithToBinnary(message);
             this.client.Send(data);

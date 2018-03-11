@@ -29,11 +29,11 @@ namespace ChatLib
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static MessageBaser SwithToMessager(byte[] data)
+        public static MessageBase SwithToMessager(byte[] data)
         {
             var stream = new MemoryStream(data);
             var formatter = new BinaryFormatter();
-            return (MessageBaser)formatter.Deserialize(stream);
+            return (MessageBase)formatter.Deserialize(stream);
         }
     }
 }

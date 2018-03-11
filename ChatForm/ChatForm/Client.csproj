@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoardCaro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BoardCaro.Designer.cs">
+      <DependentUpon>BoardCaro.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientChat.cs" />
     <Compile Include="MayKhach.cs">
       <SubType>Form</SubType>
@@ -54,8 +60,12 @@
     <Compile Include="MayKhach.Designer.cs">
       <DependentUpon>MayKhach.cs</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BoardCaro.resx">
+      <DependentUpon>BoardCaro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MayKhach.resx">
       <DependentUpon>MayKhach.cs</DependentUpon>
     </EmbeddedResource>
